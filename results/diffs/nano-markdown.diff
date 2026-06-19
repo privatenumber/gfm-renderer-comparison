@@ -1,0 +1,1838 @@
+diff --git expected/comment-after-heading.html nano-markdown/comment-after-heading.html
+--- expected/comment-after-heading.html
++++ nano-markdown/comment-after-heading.html
+@@ -1,3 +1,4 @@
+ <h1>
+   Heading text
++  <!--trailing comment-->
+ </h1>
+diff --git expected/comment-backticks-in-table.html nano-markdown/comment-backticks-in-table.html
+--- expected/comment-backticks-in-table.html
++++ nano-markdown/comment-backticks-in-table.html
+@@ -1,26 +1,5 @@
+-<markdown-accessiblity-table>
+-  <table role="table">
+-    <thead>
+-      <tr>
+-        <th>
+-          Code
+-        </th>
+-        <th>
+-          Note
+-        </th>
+-      </tr>
+-    </thead>
+-    <tbody>
+-      <tr>
+-        <td>
+-          <code class="notranslate">
+-            <!-- c -->
+-          </code>
+-        </td>
+-        <td>
+-          literal
+-        </td>
+-      </tr>
+-    </tbody>
+-  </table>
+-</markdown-accessiblity-table>
++<p>
++  | Code | Note | | ---- | ---- | | `
++  <!--c-->
++  ` | literal |
++</p>
+diff --git expected/comment-block.html nano-markdown/comment-block.html
+--- expected/comment-block.html
++++ nano-markdown/comment-block.html
+@@ -2,5 +2,8 @@
+   Before the comment.
+ </p>
+ <p>
++  <!--a standalone block comment-->
++</p>
++<p>
+   After the comment.
+ </p>
+diff --git expected/comment-in-code-span.html nano-markdown/comment-in-code-span.html
+--- expected/comment-in-code-span.html
++++ nano-markdown/comment-in-code-span.html
+@@ -1,7 +1,5 @@
+ <p>
+-  Inline code
+-  <code class="notranslate">
+-    <!-- not a real comment -->
+-  </code>
+-  must stay literal.
++  Inline code `
++  <!--not a real comment-->
++  ` must stay literal.
+ </p>
+diff --git expected/comment-in-fenced-code.html nano-markdown/comment-in-fenced-code.html
+--- expected/comment-in-fenced-code.html
++++ nano-markdown/comment-in-fenced-code.html
+@@ -1,26 +1,9 @@
+-<div class="highlight highlight-text-html-basic">
+-  <pre class="notranslate">
+-    <span class="pl-c">
+-      <!-- comment inside a fenced code block -->
+-    </span>
+-    <span class="pl-kos">
+-      <
+-    </span>
+-    <span class="pl-ent">
+-      div
+-    </span>
+-    <span class="pl-kos">
+-      >
+-    </span>
+-    x
+-    <span class="pl-kos">
+-      </
+-    </span>
+-    <span class="pl-ent">
+-      div
+-    </span>
+-    <span class="pl-kos">
+-      >
+-    </span>
+-  </pre>
++<p>
++  ```html
++  <!--comment inside a fenced code block-->
++</p>
++<div>
++  x
+ </div>
++```
++<p />
+diff --git expected/comment-in-indented-code.html nano-markdown/comment-in-indented-code.html
+--- expected/comment-in-indented-code.html
++++ nano-markdown/comment-in-indented-code.html
+@@ -1,5 +1,4 @@
+-<pre class="notranslate">
+-  <code class="notranslate">
+-    still code
+-  </code>
+-</pre>
++<p>
++  <!--comment inside an indented code block-->
++  still code
++</p>
+diff --git expected/comment-in-list.html nano-markdown/comment-in-list.html
+--- expected/comment-in-list.html
++++ nano-markdown/comment-in-list.html
+@@ -1,9 +1,8 @@
+ <ul>
+   <li>
+     First item
++    <!--comment between items-->
+   </li>
+-</ul>
+-<ul>
+   <li>
+     Second item
+   </li>
+diff --git expected/comment-in-table-cell.html nano-markdown/comment-in-table-cell.html
+--- expected/comment-in-table-cell.html
++++ nano-markdown/comment-in-table-cell.html
+@@ -1,22 +1,5 @@
+-<markdown-accessiblity-table>
+-  <table role="table">
+-    <thead>
+-      <tr>
+-        <th>
+-          Col A
+-        </th>
+-        <th>
+-          Col B
+-        </th>
+-      </tr>
+-    </thead>
+-    <tbody>
+-      <tr>
+-        <td />
+-        <td>
+-          visible
+-        </td>
+-      </tr>
+-    </tbody>
+-  </table>
+-</markdown-accessiblity-table>
++<p>
++  | Col A | Col B | | ----- | ----- | |
++  <!--raw comment-->
++  | visible |
++</p>
+diff --git expected/comment-inline.html nano-markdown/comment-inline.html
+--- expected/comment-inline.html
++++ nano-markdown/comment-inline.html
+@@ -1,3 +1,5 @@
+ <p>
+-  Text before and text after.
++  Text before
++  <!--inline comment-->
++  and text after.
+ </p>
+diff --git expected/comment-multiline.html nano-markdown/comment-multiline.html
+--- expected/comment-multiline.html
++++ nano-markdown/comment-multiline.html
+@@ -1 +1,4 @@
+-
++<p>
++  <!--multi-line
++comment body-->
++</p>
+diff --git expected/comment-only.html nano-markdown/comment-only.html
+--- expected/comment-only.html
++++ nano-markdown/comment-only.html
+@@ -1 +1,3 @@
+-
++<p>
++  <!--the entire document is only this comment-->
++</p>
+diff --git expected/comment-pipe-in-table.html nano-markdown/comment-pipe-in-table.html
+--- expected/comment-pipe-in-table.html
++++ nano-markdown/comment-pipe-in-table.html
+@@ -1,24 +1,5 @@
+-<markdown-accessiblity-table>
+-  <table role="table">
+-    <thead>
+-      <tr>
+-        <th>
+-          A
+-        </th>
+-        <th>
+-          B
+-        </th>
+-      </tr>
+-    </thead>
+-    <tbody>
+-      <tr>
+-        <td>
+-          <!-- a
+-        </td>
+-        <td>
+-          b -->
+-        </td>
+-      </tr>
+-    </tbody>
+-  </table>
+-</markdown-accessiblity-table>
++<p>
++  | A | B | | - | - | |
++  <!--a | b-->
++  | c |
++</p>
+diff --git expected/comment-unclosed.html nano-markdown/comment-unclosed.html
+--- expected/comment-unclosed.html
++++ nano-markdown/comment-unclosed.html
+@@ -1,3 +1,4 @@
+ <p>
+-  Text then <!-- an unclosed comment that never ends
++  Text then
++  <!--an unclosed comment that never ends</p>-->
+ </p>
+diff --git expected/comment-with-markdown.html nano-markdown/comment-with-markdown.html
+--- expected/comment-with-markdown.html
++++ nano-markdown/comment-with-markdown.html
+@@ -1 +1,3 @@
+-
++<p>
++  <!--<b>bold</b> <i>italic</i> and <a href="https://example.com">a link</a> inside a comment-->
++</p>
+diff --git expected/comment-with-raw-html.html nano-markdown/comment-with-raw-html.html
+--- expected/comment-with-raw-html.html
++++ nano-markdown/comment-with-raw-html.html
+@@ -1 +1,3 @@
+-
++<p>
++  <!--<div class="x">raw tags</div> and <script>alert(1)</script> inside-->
++</p>
+diff --git expected/backslash-escapes.html nano-markdown/backslash-escapes.html
+--- expected/backslash-escapes.html
++++ nano-markdown/backslash-escapes.html
+@@ -1,3 +1,3 @@
+ <p>
+-  *not emphasis* and `not code` and # not heading and [not link]
++  *not emphasis* and \`not code\` and # not heading and [not link]
+ </p>
+diff --git expected/blockquote.html nano-markdown/blockquote.html
+--- expected/blockquote.html
++++ nano-markdown/blockquote.html
+@@ -1,7 +1,3 @@
+-<blockquote>
+-  <p>
+-    A blockquote
+-    <br />
+-    spanning two lines.
+-  </p>
+-</blockquote>
++<p>
++  > A blockquote > spanning two lines.
++</p>
+diff --git expected/code-span.html nano-markdown/code-span.html
+--- expected/code-span.html
++++ nano-markdown/code-span.html
+@@ -1,11 +1,3 @@
+ <p>
+-  Use the
+-  <code class="notranslate">
+-    printf()
+-  </code>
+-  function and
+-  <code class="notranslate">
+-    a ` b
+-  </code>
+-  for literal backticks.
++  Use the `printf()` function and `` a ` b `` for literal backticks.
+ </p>
+diff --git expected/emphasis.html nano-markdown/emphasis.html
+--- expected/emphasis.html
++++ nano-markdown/emphasis.html
+@@ -1,23 +1,23 @@
+ <p>
+-  <em>
++  <i>
+     italic
+-  </em>
++  </i>
+   and
+-  <em>
++  <i>
+     italic
+-  </em>
++  </i>
+   and
+-  <strong>
++  <b>
+     bold
+-  </strong>
++  </b>
+   and
+-  <strong>
++  <b>
+     bold
+-  </strong>
++  </b>
+   and
+-  <em>
+-    <strong>
++  <b>
++    <i>
+       bold italic
+-    </strong>
+-  </em>
++    </i>
++  </b>
+ </p>
+diff --git expected/fenced-code-lang.html nano-markdown/fenced-code-lang.html
+--- expected/fenced-code-lang.html
++++ nano-markdown/fenced-code-lang.html
+@@ -1,40 +1,3 @@
+-<div class="highlight highlight-source-js">
+-  <pre class="notranslate">
+-    <span class="pl-k">
+-      const
+-    </span>
+-    <span class="pl-s1">
+-      x
+-    </span>
+-    <span class="pl-c1">
+-      =
+-    </span>
+-    <span class="pl-c1">
+-      1
+-    </span>
+-    <span class="pl-kos">
+-      ;
+-    </span>
+-    <span class="pl-smi">
+-      console
+-    </span>
+-    <span class="pl-kos">
+-      .
+-    </span>
+-    <span class="pl-en">
+-      log
+-    </span>
+-    <span class="pl-kos">
+-      (
+-    </span>
+-    <span class="pl-s1">
+-      x
+-    </span>
+-    <span class="pl-kos">
+-      )
+-    </span>
+-    <span class="pl-kos">
+-      ;
+-    </span>
+-  </pre>
+-</div>
++<p>
++  ```js const x = 1; console.log(x); ```
++</p>
+diff --git expected/fenced-code.html nano-markdown/fenced-code.html
+--- expected/fenced-code.html
++++ nano-markdown/fenced-code.html
+@@ -1,5 +1,3 @@
+-<pre class="notranslate">
+-  <code class="notranslate">
+-    plain fenced code no language
+-  </code>
+-</pre>
++<p>
++  ``` plain fenced code no language ```
++</p>
+diff --git expected/hard-break-backslash.html nano-markdown/hard-break-backslash.html
+--- expected/hard-break-backslash.html
++++ nano-markdown/hard-break-backslash.html
+@@ -1,5 +1,3 @@
+ <p>
+-  Line one with a backslash
+-  <br />
+-  Line two after a hard break.
++  Line one with a backslash\ Line two after a hard break.
+ </p>
+diff --git expected/hard-break-spaces.html nano-markdown/hard-break-spaces.html
+--- expected/hard-break-spaces.html
++++ nano-markdown/hard-break-spaces.html
+@@ -1,5 +1,3 @@
+ <p>
+-  Line one with trailing spaces
+-  <br />
+-  Line two after a hard break.
++  Line one with trailing spaces Line two after a hard break.
+ </p>
+diff --git expected/html-block.html nano-markdown/html-block.html
+--- expected/html-block.html
++++ nano-markdown/html-block.html
+@@ -1,5 +1,7 @@
+-<div>
++<p />
++<div class="note">
+   <p>
+     A raw HTML block.
+   </p>
+ </div>
++<p />
+diff --git expected/image.html nano-markdown/image.html
+--- expected/image.html
++++ nano-markdown/image.html
+@@ -1,5 +1,3 @@
+ <p>
+-  <a href="https://camo.githubusercontent.com/27bcedb12cbae144ef3b1cb45d969d3058276761f6169891e0cdb7a49d1ef7fd/68747470733a2f2f6578616d706c652e636f6d2f696d6167652e706e67" rel="noopener noreferrer nofollow" target="_blank">
+-    <img alt="alt text" data-canonical-src="https://example.com/image.png" src="https://camo.githubusercontent.com/27bcedb12cbae144ef3b1cb45d969d3058276761f6169891e0cdb7a49d1ef7fd/68747470733a2f2f6578616d706c652e636f6d2f696d6167652e706e67" style="max-width: 100%;" title="Image Title" />
+-  </a>
++  <img alt="alt text" src="https://example.com/image.png" title="Image Title" />
+ </p>
+diff --git expected/indented-code.html nano-markdown/indented-code.html
+--- expected/indented-code.html
++++ nano-markdown/indented-code.html
+@@ -1,5 +1,3 @@
+ <p>
+-  indented code block
+-  <br />
+-  second line
++  indented code block second line
+ </p>
+diff --git expected/inline-link.html nano-markdown/inline-link.html
+--- expected/inline-link.html
++++ nano-markdown/inline-link.html
+@@ -1,6 +1,6 @@
+ <p>
+   An
+-  <a href="https://example.com" rel="nofollow">
++  <a href="https://example.com">
+     inline link
+   </a>
+   in text.
+diff --git expected/intraword-emphasis.html nano-markdown/intraword-emphasis.html
+--- expected/intraword-emphasis.html
++++ nano-markdown/intraword-emphasis.html
+@@ -1,11 +1,3 @@
+ <p>
+-  foo
+-  <em>
+-    bar
+-  </em>
+-  baz and foo_bar_baz and 5
+-  <em>
+-    6
+-  </em>
+-  7
++  foo*bar*baz and foo_bar_baz and 5*6*7
+ </p>
+diff --git expected/link-with-title.html nano-markdown/link-with-title.html
+--- expected/link-with-title.html
++++ nano-markdown/link-with-title.html
+@@ -1,6 +1,6 @@
+ <p>
+   A
+-  <a href="https://example.com" rel="nofollow" title="Example Title">
++  <a href="https://example.com" title="Example Title">
+     titled link
+   </a>
+   here.
+diff --git expected/loose-list.html nano-markdown/loose-list.html
+--- expected/loose-list.html
++++ nano-markdown/loose-list.html
+@@ -1,12 +1,10 @@
+ <ul>
+   <li>
+-    <p>
+-      Item one
+-    </p>
++    Item one
+   </li>
++</ul>
++<ul>
+   <li>
+-    <p>
+-      Item two with a blank line before it
+-    </p>
++    Item two with a blank line before it
+   </li>
+ </ul>
+diff --git expected/nested-blockquote.html nano-markdown/nested-blockquote.html
+--- expected/nested-blockquote.html
++++ nano-markdown/nested-blockquote.html
+@@ -1,12 +1,3 @@
+-<blockquote>
+-  <p>
+-    Outer
+-  </p>
+-  <blockquote>
+-    <p>
+-      Inner nested
+-      <br />
+-      quote
+-    </p>
+-  </blockquote>
+-</blockquote>
++<p>
++  > Outer > > Inner nested > > quote
++</p>
+diff --git expected/ordered-list-start.html nano-markdown/ordered-list-start.html
+--- expected/ordered-list-start.html
++++ nano-markdown/ordered-list-start.html
+@@ -1,4 +1,4 @@
+-<ol start="5">
++<ol>
+   <li>
+     Five
+   </li>
+diff --git expected/paragraphs-softbreak.html nano-markdown/paragraphs-softbreak.html
+--- expected/paragraphs-softbreak.html
++++ nano-markdown/paragraphs-softbreak.html
+@@ -1,7 +1,5 @@
+ <p>
+-  First line of a paragraph
+-  <br />
+-  second line after a soft break.
++  First line of a paragraph second line after a soft break.
+ </p>
+ <p>
+   A second paragraph.
+diff --git expected/pointy-autolink.html nano-markdown/pointy-autolink.html
+--- expected/pointy-autolink.html
++++ nano-markdown/pointy-autolink.html
+@@ -1,11 +1,9 @@
+ <p>
+   Pointy autolink
+-  <a href="https://example.com" rel="nofollow">
+-    https://example.com
+-  </a>
+-  and email
+-  <a href="mailto:test@example.com">
+-    test@example.com
+-  </a>
+-  .
++  <https: example.com="">
++    and email
++    <test@example class="com">
++      .
++    </test@example>
++  </https:>
+ </p>
+diff --git expected/reference-link.html nano-markdown/reference-link.html
+--- expected/reference-link.html
++++ nano-markdown/reference-link.html
+@@ -1,7 +1,6 @@
+ <p>
+-  A
+-  <a href="https://example.com" rel="nofollow" title="Reference">
+-    reference link
+-  </a>
+-  in text.
++  A [reference link][ref] in text.
+ </p>
++<p>
++  [ref]: https://example.com "Reference"
++</p>
+diff --git expected/setext-headings.html nano-markdown/setext-headings.html
+--- expected/setext-headings.html
++++ nano-markdown/setext-headings.html
+@@ -1,6 +1,7 @@
+-<h1>
+-  Heading one
+-</h1>
+-<h2>
++<p>
++  Heading one ===========
++</p>
++<p>
+   Heading two
+-</h2>
++</p>
++<hr />
+diff --git expected/ampersand-in-url.html nano-markdown/ampersand-in-url.html
+--- expected/ampersand-in-url.html
++++ nano-markdown/ampersand-in-url.html
+@@ -1,6 +1,6 @@
+ <p>
+   A
+-  <a href="https://example.com/search?a=1&b=2&c=3" rel="nofollow">
++  <a href="https://example.com/search?a=1&b=2&c=3">
+     query link
+   </a>
+   with ampersands.
+diff --git expected/backtick-in-code.html nano-markdown/backtick-in-code.html
+--- expected/backtick-in-code.html
++++ nano-markdown/backtick-in-code.html
+@@ -1,11 +1,3 @@
+ <p>
+-  Inline
+-  <code class="notranslate">
+-    code with ` backtick
+-  </code>
+-  and
+-  <code class="notranslate">
+-    triple ` inside
+-  </code>
+-  .
++  Inline `` code with ` backtick `` and ```triple ` inside```.
+ </p>
+diff --git expected/blockquote-with-heading.html nano-markdown/blockquote-with-heading.html
+--- expected/blockquote-with-heading.html
++++ nano-markdown/blockquote-with-heading.html
+@@ -1,8 +1,3 @@
+-<blockquote>
+-  <h1>
+-    Heading inside a quote
+-  </h1>
+-  <p>
+-    And a paragraph.
+-  </p>
+-</blockquote>
++<p>
++  > # Heading inside a quote > > And a paragraph.
++</p>
+diff --git expected/code-block-with-html.html nano-markdown/code-block-with-html.html
+--- expected/code-block-with-html.html
++++ nano-markdown/code-block-with-html.html
+@@ -1,60 +1,10 @@
+-<div class="highlight highlight-text-html-basic">
+-  <pre class="notranslate">
+-    <span class="pl-kos">
+-      <
+-    </span>
+-    <span class="pl-ent">
+-      div
+-    </span>
+-    <span class="pl-c1">
+-      class
+-    </span>
+-    ="
+-    <span class="pl-s">
+-      x
+-    </span>
+-    "
+-    <span class="pl-kos">
+-      >
+-    </span>
+-    <span class="pl-kos">
+-      <
+-    </span>
+-    <span class="pl-ent">
+-      script
+-    </span>
+-    <span class="pl-kos">
+-      >
+-    </span>
+-    <span class="pl-en">
+-      alert
+-    </span>
+-    <span class="pl-kos">
+-      (
+-    </span>
+-    <span class="pl-c1">
+-      1
+-    </span>
+-    <span class="pl-kos">
+-      )
+-    </span>
+-    <span class="pl-kos">
+-      </
+-    </span>
+-    <span class="pl-ent">
+-      script
+-    </span>
+-    <span class="pl-kos">
+-      >
+-    </span>
+-    <span class="pl-kos">
+-      </
+-    </span>
+-    <span class="pl-ent">
+-      div
+-    </span>
+-    <span class="pl-kos">
+-      >
+-    </span>
+-  </pre>
++<p>
++  ```html
++</p>
++<div class="x">
++  <script>
++    alert(1)
++  </script>
+ </div>
++```
++<p />
+diff --git expected/consecutive-emphasis.html nano-markdown/consecutive-emphasis.html
+--- expected/consecutive-emphasis.html
++++ nano-markdown/consecutive-emphasis.html
+@@ -1,12 +1,12 @@
+ <p>
+-  <strong>
++  <b>
+     bold
+-  </strong>
+-  <em>
++  </b>
++  <i>
+     italic
+-  </em>
+-  <strong>
++  </i>
++  <b>
+     bold
+-  </strong>
++  </b>
+   with no spaces between runs.
+ </p>
+diff --git expected/emphasis-in-link.html nano-markdown/emphasis-in-link.html
+--- expected/emphasis-in-link.html
++++ nano-markdown/emphasis-in-link.html
+@@ -1,14 +1,11 @@
+ <p>
+-  A
+-  <a href="https://example.com" rel="nofollow">
+-    link with
+-    <strong>
+-      bold
+-    </strong>
+-    and
+-    <em>
+-      italic
+-    </em>
+-  </a>
+-  text.
++  A [link with
++  <b>
++    bold
++  </b>
++  and
++  <i>
++    italic
++  </i>
++  ](https://example.com) text.
+ </p>
+diff --git expected/escaped-pipe-outside-table.html nano-markdown/escaped-pipe-outside-table.html
+--- expected/escaped-pipe-outside-table.html
++++ nano-markdown/escaped-pipe-outside-table.html
+@@ -1,3 +1,3 @@
+ <p>
+-  Not a table: a | b | c just text with escaped pipes.
++  Not a table: a \| b \| c just text with escaped pipes.
+ </p>
+diff --git expected/html-inside-table.html nano-markdown/html-inside-table.html
+--- expected/html-inside-table.html
++++ nano-markdown/html-inside-table.html
+@@ -1,36 +1,9 @@
+-<markdown-accessiblity-table>
+-  <table role="table">
+-    <thead>
+-      <tr>
+-        <th>
+-          Tag
+-        </th>
+-        <th>
+-          Example
+-        </th>
+-      </tr>
+-    </thead>
+-    <tbody>
+-      <tr>
+-        <td>
+-          bold
+-        </td>
+-        <td>
+-          <strong>
+-            hi
+-          </strong>
+-        </td>
+-      </tr>
+-      <tr>
+-        <td>
+-          break
+-        </td>
+-        <td>
+-          a
+-          <br />
+-          b
+-        </td>
+-      </tr>
+-    </tbody>
+-  </table>
+-</markdown-accessiblity-table>
++<p>
++  | Tag | Example | | --- | ------- | | bold |
++  <strong>
++    hi
++  </strong>
++  | | break | a
++  <br />
++  b |
++</p>
+diff --git expected/link-with-parens-in-url.html nano-markdown/link-with-parens-in-url.html
+--- expected/link-with-parens-in-url.html
++++ nano-markdown/link-with-parens-in-url.html
+@@ -1,7 +1,7 @@
+ <p>
+   See
+-  <a href="https://en.wikipedia.org/wiki/Markdown_(disambiguation)" rel="nofollow">
++  <a href="https://en.wikipedia.org/wiki/Markdown_(disambiguation">
+     Wikipedia
+   </a>
+-  article.
++  ) article.
+ </p>
+diff --git expected/list-with-blockquote.html nano-markdown/list-with-blockquote.html
+--- expected/list-with-blockquote.html
++++ nano-markdown/list-with-blockquote.html
+@@ -1,19 +1,13 @@
+ <ul>
+   <li>
+-    <p>
+-      A list item containing
+-    </p>
+-    <blockquote>
+-      <p>
+-        a blockquote
+-        <br />
+-        inside the item
+-      </p>
+-    </blockquote>
++    A list item containing
+   </li>
++</ul>
++<p>
++  > a blockquote > inside the item
++</p>
++<ul>
+   <li>
+-    <p>
+-      Next item
+-    </p>
++    Next item
+   </li>
+ </ul>
+diff --git expected/list-with-fenced-code.html nano-markdown/list-with-fenced-code.html
+--- expected/list-with-fenced-code.html
++++ nano-markdown/list-with-fenced-code.html
+@@ -1,20 +1,13 @@
+ <ol>
+   <li>
+-    <p>
+-      First step:
+-    </p>
+-    <div class="highlight highlight-source-shell">
+-      <pre class="notranslate">
+-        <span class="pl-c1">
+-          echo
+-        </span>
+-        hello
+-      </pre>
+-    </div>
++    First step:
+   </li>
++</ol>
++<p>
++  ```bash echo hello ```
++</p>
++<ol>
+   <li>
+-    <p>
+-      Second step after the code block.
+-    </p>
++    Second step after the code block.
+   </li>
+ </ol>
+diff --git expected/raw-html-comment.html nano-markdown/raw-html-comment.html
+--- expected/raw-html-comment.html
++++ nano-markdown/raw-html-comment.html
+@@ -2,5 +2,8 @@
+   Before comment.
+ </p>
+ <p>
++  <!--this is an HTML comment-->
++</p>
++<p>
+   After comment.
+ </p>
+diff --git expected/tight-vs-loose.html nano-markdown/tight-vs-loose.html
+--- expected/tight-vs-loose.html
++++ nano-markdown/tight-vs-loose.html
+@@ -11,13 +11,11 @@
+ </p>
+ <ol>
+   <li>
+-    <p>
+-      loose one
+-    </p>
++    loose one
+   </li>
++</ol>
++<ol>
+   <li>
+-    <p>
+-      loose two
+-    </p>
++    loose two
+   </li>
+ </ol>
+diff --git expected/autolink-email.html nano-markdown/autolink-email.html
+--- expected/autolink-email.html
++++ nano-markdown/autolink-email.html
+@@ -1,7 +1,3 @@
+ <p>
+-  Email me at
+-  <a href="mailto:someone@example.com">
+-    someone@example.com
+-  </a>
+-  please.
++  Email me at someone@example.com please.
+ </p>
+diff --git expected/autolink-in-parentheses.html nano-markdown/autolink-in-parentheses.html
+--- expected/autolink-in-parentheses.html
++++ nano-markdown/autolink-in-parentheses.html
+@@ -1,7 +1,3 @@
+ <p>
+-  A link
+-  <a href="http://www.example.com/foo_(bar)" rel="nofollow">
+-    www.example.com/foo_(bar)
+-  </a>
+-  with balanced parens.
++  A link www.example.com/foo_(bar) with balanced parens.
+ </p>
+diff --git expected/autolink-trailing-punctuation.html nano-markdown/autolink-trailing-punctuation.html
+--- expected/autolink-trailing-punctuation.html
++++ nano-markdown/autolink-trailing-punctuation.html
+@@ -1,15 +1,3 @@
+ <p>
+-  See (
+-  <a href="https://example.com" rel="nofollow">
+-    https://example.com
+-  </a>
+-  ) and
+-  <a href="https://example.com" rel="nofollow">
+-    https://example.com
+-  </a>
+-  . and
+-  <a href="https://example.com/path?a=1&b=2" rel="nofollow">
+-    https://example.com/path?a=1&b=2
+-  </a>
+-  .
++  See (https://example.com) and https://example.com. and https://example.com/path?a=1&b=2.
+ </p>
+diff --git expected/autolink-url.html nano-markdown/autolink-url.html
+--- expected/autolink-url.html
++++ nano-markdown/autolink-url.html
+@@ -1,11 +1,3 @@
+ <p>
+-  Visit
+-  <a href="https://example.com" rel="nofollow">
+-    https://example.com
+-  </a>
+-  for more, or
+-  <a href="http://test.org" rel="nofollow">
+-    http://test.org
+-  </a>
+-  too.
++  Visit https://example.com for more, or http://test.org too.
+ </p>
+diff --git expected/autolink-www.html nano-markdown/autolink-www.html
+--- expected/autolink-www.html
++++ nano-markdown/autolink-www.html
+@@ -1,7 +1,3 @@
+ <p>
+-  Check out
+-  <a href="http://www.example.com" rel="nofollow">
+-    www.example.com
+-  </a>
+-  for details.
++  Check out www.example.com for details.
+ </p>
+diff --git expected/strikethrough-nested.html nano-markdown/strikethrough-nested.html
+--- expected/strikethrough-nested.html
++++ nano-markdown/strikethrough-nested.html
+@@ -1,13 +1,13 @@
+ <p>
+   <del>
+     struck with
+-    <strong>
+-      bold
+-    </strong>
+-    and
+-    <em>
++    <i>
++      *bold
++    </i>
++    * and
++    <i>
+       italic
+-    </em>
++    </i>
+     inside
+   </del>
+ </p>
+diff --git expected/strikethrough-single.html nano-markdown/strikethrough-single.html
+--- expected/strikethrough-single.html
++++ nano-markdown/strikethrough-single.html
+@@ -1,7 +1,3 @@
+ <p>
+-  This is
+-  <del>
+-    single tilde
+-  </del>
+-  text.
++  This is ~single tilde~ text.
+ </p>
+diff --git expected/table-alignment.html nano-markdown/table-alignment.html
+--- expected/table-alignment.html
++++ nano-markdown/table-alignment.html
+@@ -1,41 +1,3 @@
+-<markdown-accessiblity-table>
+-  <table role="table">
+-    <thead>
+-      <tr>
+-        <th align="left">
+-          Left
+-        </th>
+-        <th align="center">
+-          Center
+-        </th>
+-        <th align="right">
+-          Right
+-        </th>
+-      </tr>
+-    </thead>
+-    <tbody>
+-      <tr>
+-        <td align="left">
+-          a
+-        </td>
+-        <td align="center">
+-          b
+-        </td>
+-        <td align="right">
+-          c
+-        </td>
+-      </tr>
+-      <tr>
+-        <td align="left">
+-          dd
+-        </td>
+-        <td align="center">
+-          ee
+-        </td>
+-        <td align="right">
+-          ff
+-        </td>
+-      </tr>
+-    </tbody>
+-  </table>
+-</markdown-accessiblity-table>
++<p>
++  | Left | Center | Right | | :--- | :----: | ----: | | a | b | c | | dd | ee | ff |
++</p>
+diff --git expected/table-basic.html nano-markdown/table-basic.html
+--- expected/table-basic.html
++++ nano-markdown/table-basic.html
+@@ -1,32 +1,3 @@
+-<markdown-accessiblity-table>
+-  <table role="table">
+-    <thead>
+-      <tr>
+-        <th>
+-          Fruit
+-        </th>
+-        <th>
+-          Color
+-        </th>
+-      </tr>
+-    </thead>
+-    <tbody>
+-      <tr>
+-        <td>
+-          Apple
+-        </td>
+-        <td>
+-          Red
+-        </td>
+-      </tr>
+-      <tr>
+-        <td>
+-          Lime
+-        </td>
+-        <td>
+-          Green
+-        </td>
+-      </tr>
+-    </tbody>
+-  </table>
+-</markdown-accessiblity-table>
++<p>
++  | Fruit | Color | | ----- | ----- | | Apple | Red | | Lime | Green |
++</p>
+diff --git expected/table-escaped-pipe.html nano-markdown/table-escaped-pipe.html
+--- expected/table-escaped-pipe.html
++++ nano-markdown/table-escaped-pipe.html
+@@ -1,24 +1,3 @@
+-<markdown-accessiblity-table>
+-  <table role="table">
+-    <thead>
+-      <tr>
+-        <th>
+-          Column
+-        </th>
+-        <th>
+-          Value
+-        </th>
+-      </tr>
+-    </thead>
+-    <tbody>
+-      <tr>
+-        <td>
+-          pipe
+-        </td>
+-        <td>
+-          a | b
+-        </td>
+-      </tr>
+-    </tbody>
+-  </table>
+-</markdown-accessiblity-table>
++<p>
++  | Column | Value | | ------ | ----- | | pipe | a \| b |
++</p>
+diff --git expected/table-inline-formatting.html nano-markdown/table-inline-formatting.html
+--- expected/table-inline-formatting.html
++++ nano-markdown/table-inline-formatting.html
+@@ -1,40 +1,15 @@
+-<markdown-accessiblity-table>
+-  <table role="table">
+-    <thead>
+-      <tr>
+-        <th>
+-          Syntax
+-        </th>
+-        <th>
+-          Renders
+-        </th>
+-      </tr>
+-    </thead>
+-    <tbody>
+-      <tr>
+-        <td>
+-          <code class="notranslate">
+-            code
+-          </code>
+-        </td>
+-        <td>
+-          <strong>
+-            bold
+-          </strong>
+-        </td>
+-      </tr>
+-      <tr>
+-        <td>
+-          <del>
+-            old
+-          </del>
+-        </td>
+-        <td>
+-          <a href="https://example.com" rel="nofollow">
+-            link
+-          </a>
+-        </td>
+-      </tr>
+-    </tbody>
+-  </table>
+-</markdown-accessiblity-table>
++<p>
++  | Syntax | Renders | | ------ | ------- | | `code` |
++  <b>
++    bold
++  </b>
++  | |
++  <del>
++    old
++  </del>
++  |
++  <a href="https://example.com">
++    link
++  </a>
++  |
++</p>
+diff --git expected/table-no-body.html nano-markdown/table-no-body.html
+--- expected/table-no-body.html
++++ nano-markdown/table-no-body.html
+@@ -1,14 +1,3 @@
+-<markdown-accessiblity-table>
+-  <table role="table">
+-    <thead>
+-      <tr>
+-        <th>
+-          Header A
+-        </th>
+-        <th>
+-          Header B
+-        </th>
+-      </tr>
+-    </thead>
+-  </table>
+-</markdown-accessiblity-table>
++<p>
++  | Header A | Header B | | -------- | -------- |
++</p>
+diff --git expected/table-ragged.html nano-markdown/table-ragged.html
+--- expected/table-ragged.html
++++ nano-markdown/table-ragged.html
+@@ -1,37 +1,3 @@
+-<markdown-accessiblity-table>
+-  <table role="table">
+-    <thead>
+-      <tr>
+-        <th>
+-          A
+-        </th>
+-        <th>
+-          B
+-        </th>
+-        <th>
+-          C
+-        </th>
+-      </tr>
+-    </thead>
+-    <tbody>
+-      <tr>
+-        <td>
+-          only one
+-        </td>
+-        <td />
+-        <td />
+-      </tr>
+-      <tr>
+-        <td>
+-          1
+-        </td>
+-        <td>
+-          2
+-        </td>
+-        <td>
+-          3
+-        </td>
+-      </tr>
+-    </tbody>
+-  </table>
+-</markdown-accessiblity-table>
++<p>
++  | A | B | C | | - | - | - | | only one | | 1 | 2 | 3 | 4 |
++</p>
+diff --git expected/tagfilter.html nano-markdown/tagfilter.html
+--- expected/tagfilter.html
++++ nano-markdown/tagfilter.html
+@@ -1,3 +1,6 @@
+ <p>
+-  A <title> tag and a <textarea> and <xmp> and <script>alert(1)</script> raw.
++  A
++  <title>
++    tag and a <textarea> and <xmp> and <script>alert(1)</script> raw.</p>
++  </title>
+ </p>
+diff --git expected/tasklist-nested.html nano-markdown/tasklist-nested.html
+--- expected/tasklist-nested.html
++++ nano-markdown/tasklist-nested.html
+@@ -1,15 +1,12 @@
+-<ul class="contains-task-list">
+-  <li class="task-list-item">
+-    <input aria-label="Incomplete task" class="task-list-item-checkbox" disabled id="" type="checkbox" />
+-    Parent task
+-    <ul class="contains-task-list">
+-      <li class="task-list-item">
+-        <input aria-label="Completed task" checked class="task-list-item-checkbox" disabled id="" type="checkbox" />
+-        Child done
++<ul>
++  <li>
++    [ ] Parent task
++    <ul>
++      <li>
++        [x] Child done
+       </li>
+-      <li class="task-list-item">
+-        <input aria-label="Incomplete task" class="task-list-item-checkbox" disabled id="" type="checkbox" />
+-        Child todo
++      <li>
++        [ ] Child todo
+       </li>
+     </ul>
+   </li>
+diff --git expected/tasklist-with-formatting.html nano-markdown/tasklist-with-formatting.html
+--- expected/tasklist-with-formatting.html
++++ nano-markdown/tasklist-with-formatting.html
+@@ -1,20 +1,15 @@
+-<ul class="contains-task-list">
+-  <li class="task-list-item">
+-    <input aria-label="Completed task" checked class="task-list-item-checkbox" disabled id="" type="checkbox" />
+-    Task with
+-    <strong>
++<ul>
++  <li>
++    [x] Task with
++    <b>
+       bold
+-    </strong>
++    </b>
+     and a
+-    <a href="https://example.com" rel="nofollow">
++    <a href="https://example.com">
+       link
+     </a>
+   </li>
+-  <li class="task-list-item">
+-    <input aria-label="Incomplete task" class="task-list-item-checkbox" disabled id="" type="checkbox" />
+-    Task with
+-    <code class="notranslate">
+-      code
+-    </code>
++  <li>
++    [ ] Task with `code`
+   </li>
+ </ul>
+diff --git expected/tasklist.html nano-markdown/tasklist.html
+--- expected/tasklist.html
++++ nano-markdown/tasklist.html
+@@ -1,14 +1,11 @@
+-<ul class="contains-task-list">
+-  <li class="task-list-item">
+-    <input aria-label="Completed task" checked class="task-list-item-checkbox" disabled id="" type="checkbox" />
+-    Completed task
++<ul>
++  <li>
++    [x] Completed task
+   </li>
+-  <li class="task-list-item">
+-    <input aria-label="Incomplete task" class="task-list-item-checkbox" disabled id="" type="checkbox" />
+-    Incomplete task
++  <li>
++    [ ] Incomplete task
+   </li>
+-  <li class="task-list-item">
+-    <input aria-label="Completed task" checked class="task-list-item-checkbox" disabled id="" type="checkbox" />
+-    Capital X also checked
++  <li>
++    [X] Capital X also checked
+   </li>
+ </ul>
+diff --git expected/alert-caution.html nano-markdown/alert-caution.html
+--- expected/alert-caution.html
++++ nano-markdown/alert-caution.html
+@@ -1,11 +1,3 @@
+-<div class="markdown-alert markdown-alert-caution">
+-  <p class="markdown-alert-title">
+-    <svg aria-hidden="true" class="octicon octicon-stop mr-2" data-component="Octicon" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+-      <path d="M4.47.22A.749.749 0 0 1 5 0h6c.199 0 .389.079.53.22l4.25 4.25c.141.14.22.331.22.53v6a.749.749 0 0 1-.22.53l-4.25 4.25A.749.749 0 0 1 11 16H5a.749.749 0 0 1-.53-.22L.22 11.53A.749.749 0 0 1 0 11V5c0-.199.079-.389.22-.53Zm.84 1.28L1.5 5.31v5.38l3.81 3.81h5.38l3.81-3.81V5.31L10.69 1.5ZM8 4a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 8 4Zm0 8a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z" />
+-    </svg>
+-    Caution
+-  </p>
+-  <p>
+-    Advises about risks or negative outcomes of certain actions.
+-  </p>
+-</div>
++<p>
++  > [!CAUTION] > Advises about risks or negative outcomes of certain actions.
++</p>
+diff --git expected/alert-important.html nano-markdown/alert-important.html
+--- expected/alert-important.html
++++ nano-markdown/alert-important.html
+@@ -1,11 +1,3 @@
+-<div class="markdown-alert markdown-alert-important">
+-  <p class="markdown-alert-title">
+-    <svg aria-hidden="true" class="octicon octicon-report mr-2" data-component="Octicon" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+-      <path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z" />
+-    </svg>
+-    Important
+-  </p>
+-  <p>
+-    Key information users need to know to achieve their goal.
+-  </p>
+-</div>
++<p>
++  > [!IMPORTANT] > Key information users need to know to achieve their goal.
++</p>
+diff --git expected/alert-note.html nano-markdown/alert-note.html
+--- expected/alert-note.html
++++ nano-markdown/alert-note.html
+@@ -1,11 +1,3 @@
+-<div class="markdown-alert markdown-alert-note">
+-  <p class="markdown-alert-title">
+-    <svg aria-hidden="true" class="octicon octicon-info mr-2" data-component="Octicon" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+-      <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z" />
+-    </svg>
+-    Note
+-  </p>
+-  <p>
+-    Useful information that users should know, even when skimming content.
+-  </p>
+-</div>
++<p>
++  > [!NOTE] > Useful information that users should know, even when skimming content.
++</p>
+diff --git expected/alert-tip.html nano-markdown/alert-tip.html
+--- expected/alert-tip.html
++++ nano-markdown/alert-tip.html
+@@ -1,11 +1,3 @@
+-<div class="markdown-alert markdown-alert-tip">
+-  <p class="markdown-alert-title">
+-    <svg aria-hidden="true" class="octicon octicon-light-bulb mr-2" data-component="Octicon" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+-      <path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z" />
+-    </svg>
+-    Tip
+-  </p>
+-  <p>
+-    Helpful advice for doing things better or more easily.
+-  </p>
+-</div>
++<p>
++  > [!TIP] > Helpful advice for doing things better or more easily.
++</p>
+diff --git expected/alert-warning.html nano-markdown/alert-warning.html
+--- expected/alert-warning.html
++++ nano-markdown/alert-warning.html
+@@ -1,11 +1,3 @@
+-<div class="markdown-alert markdown-alert-warning">
+-  <p class="markdown-alert-title">
+-    <svg aria-hidden="true" class="octicon octicon-alert mr-2" data-component="Octicon" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+-      <path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z" />
+-    </svg>
+-    Warning
+-  </p>
+-  <p>
+-    Urgent info that needs immediate user attention to avoid problems.
+-  </p>
+-</div>
++<p>
++  > [!WARNING] > Urgent info that needs immediate user attention to avoid problems.
++</p>
+diff --git expected/emoji-shortcode.html nano-markdown/emoji-shortcode.html
+--- expected/emoji-shortcode.html
++++ nano-markdown/emoji-shortcode.html
+@@ -1,3 +1,3 @@
+ <p>
+-  Shipped it 🚀 and celebrated 🎉 with 👍.
++  Shipped it :rocket: and celebrated :tada: with :+1:.
+ </p>
+diff --git expected/footnote-multiple.html nano-markdown/footnote-multiple.html
+--- expected/footnote-multiple.html
++++ nano-markdown/footnote-multiple.html
+@@ -1,42 +1,10 @@
+ <p>
+-  First reference
+-  <sup>
+-    <a aria-described-by="footnote-label" data-footnote-ref="" href="#user-content-fn-a-d0d1227d44c67ad96156fc590d87461c" id="user-content-fnref-a-d0d1227d44c67ad96156fc590d87461c">
+-      1
+-    </a>
+-  </sup>
+-  and second reference
+-  <sup>
+-    <a aria-described-by="footnote-label" data-footnote-ref="" href="#user-content-fn-b-d0d1227d44c67ad96156fc590d87461c" id="user-content-fnref-b-d0d1227d44c67ad96156fc590d87461c">
+-      2
+-    </a>
+-  </sup>
+-  in one paragraph.
++  First reference[^a] and second reference[^b] in one paragraph.
+ </p>
+-<section class="footnotes" data-footnotes="">
+-  <h2 class="sr-only" id="footnote-label">
+-    Footnotes
+-  </h2>
+-  <ol>
+-    <li id="user-content-fn-a-d0d1227d44c67ad96156fc590d87461c">
+-      <p>
+-        First footnote.
+-        <a aria-label="Back to reference 1" class="data-footnote-backref" data-footnote-backref="" href="#user-content-fnref-a-d0d1227d44c67ad96156fc590d87461c">
+-          ↩
+-        </a>
+-      </p>
+-    </li>
+-    <li id="user-content-fn-b-d0d1227d44c67ad96156fc590d87461c">
+-      <p>
+-        Second footnote with
+-        <strong>
+-          bold
+-        </strong>
+-        .
+-        <a aria-label="Back to reference 2" class="data-footnote-backref" data-footnote-backref="" href="#user-content-fnref-b-d0d1227d44c67ad96156fc590d87461c">
+-          ↩
+-        </a>
+-      </p>
+-    </li>
+-  </ol>
+-</section>
++<p>
++  [^a]: First footnote. [^b]: Second footnote with
++  <b>
++    bold
++  </b>
++  .
++</p>
+diff --git expected/footnote.html nano-markdown/footnote.html
+--- expected/footnote.html
++++ nano-markdown/footnote.html
+@@ -1,23 +1,6 @@
+ <p>
+-  Here is a statement with a footnote.
+-  <sup>
+-    <a aria-described-by="footnote-label" data-footnote-ref="" href="#user-content-fn-1-302ae82b9ca33678f9a03c94ef0fb605" id="user-content-fnref-1-302ae82b9ca33678f9a03c94ef0fb605">
+-      1
+-    </a>
+-  </sup>
++  Here is a statement with a footnote.[^1]
+ </p>
+-<section class="footnotes" data-footnotes="">
+-  <h2 class="sr-only" id="footnote-label">
+-    Footnotes
+-  </h2>
+-  <ol>
+-    <li id="user-content-fn-1-302ae82b9ca33678f9a03c94ef0fb605">
+-      <p>
+-        This is the footnote definition.
+-        <a aria-label="Back to reference 1" class="data-footnote-backref" data-footnote-backref="" href="#user-content-fnref-1-302ae82b9ca33678f9a03c94ef0fb605">
+-          ↩
+-        </a>
+-      </p>
+-    </li>
+-  </ol>
+-</section>
++<p>
++  [^1]: This is the footnote definition.
++</p>
+diff --git expected/math-block.html nano-markdown/math-block.html
+--- expected/math-block.html
++++ nano-markdown/math-block.html
+@@ -1,5 +1,3 @@
+ <p>
+-  <math-renderer class="js-display-math" data-run-id="6e28c46ad94a671a4538fd18f3e83e65" style="display: block">
+-    $$ \frac{1}{n} \sum_{i=1}^{n} x_i $$
+-  </math-renderer>
++  $$ \frac{1}{n} \sum_{i=1}^{n} x_i $$
+ </p>
+diff --git expected/math-inline.html nano-markdown/math-inline.html
+--- expected/math-inline.html
++++ nano-markdown/math-inline.html
+@@ -1,7 +1,3 @@
+ <p>
+-  The equation
+-  <math-renderer class="js-inline-math" data-run-id="0bae22a43582545172de61655bf8a8d3" style="display: inline-block">
+-    $a^2 + b^2 = c^2$
+-  </math-renderer>
+-  is the Pythagorean theorem.
++  The equation $a^2 + b^2 = c^2$ is the Pythagorean theorem.
+ </p>
+diff --git expected/mention.html nano-markdown/mention.html
+--- expected/mention.html
++++ nano-markdown/mention.html
+@@ -1,11 +1,3 @@
+ <p>
+-  Thanks
+-  <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/octocat/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/octocat">
+-    @octocat
+-  </a>
+-  and
+-  <a class="user-mention notranslate" data-hovercard-type="organization" data-hovercard-url="/orgs/github/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/github">
+-    @github
+-  </a>
+-  for the help.
++  Thanks @octocat and @github for the help.
+ </p>
+diff --git expected/blockquote-with-html-md.html nano-markdown/blockquote-with-html-md.html
+--- expected/blockquote-with-html-md.html
++++ nano-markdown/blockquote-with-html-md.html
+@@ -1,5 +1,11 @@
+-<blockquote>
+-  <div>
+-    *not emphasized inside quoted div*
+-  </div>
+-</blockquote>
++<p>
++  >
++</p>
++<div>
++  >
++  <i>
++    not emphasized inside quoted div
++  </i>
++  >
++</div>
++<p />
+diff --git expected/div-markdown-attr.html nano-markdown/div-markdown-attr.html
+--- expected/div-markdown-attr.html
++++ nano-markdown/div-markdown-attr.html
+@@ -1,3 +1,7 @@
+-<div>
+-  *does markdown="1" change anything?*
++<p />
++<div markdown="1">
++  <i>
++    does markdown="1" change anything?
++  </i>
+ </div>
++<p />
+diff --git expected/emphasis-across-inline-tag.html nano-markdown/emphasis-across-inline-tag.html
+--- expected/emphasis-across-inline-tag.html
++++ nano-markdown/emphasis-across-inline-tag.html
+@@ -1,9 +1,9 @@
+ <p>
+-  <em>
++  <i>
+     open
+     <span>
+       span
+     </span>
+     still emphasized
+-  </em>
++  </i>
+ </p>
+diff --git expected/heading-in-div-loose.html nano-markdown/heading-in-div-loose.html
+--- expected/heading-in-div-loose.html
++++ nano-markdown/heading-in-div-loose.html
+@@ -1,5 +1,9 @@
++<p />
+ <div>
++  <p />
+   <h1>
+     a heading
+   </h1>
++  <p />
+ </div>
++<p />
+diff --git expected/heading-in-div-tight.html nano-markdown/heading-in-div-tight.html
+--- expected/heading-in-div-tight.html
++++ nano-markdown/heading-in-div-tight.html
+@@ -1,3 +1,9 @@
++<p />
+ <div>
+-  # not a heading
++  <p />
++  <h1>
++    not a heading
++  </h1>
++  <p />
+ </div>
++<p />
+diff --git expected/list-in-div-loose.html nano-markdown/list-in-div-loose.html
+--- expected/list-in-div-loose.html
++++ nano-markdown/list-in-div-loose.html
+@@ -1,4 +1,6 @@
++<p />
+ <div>
++  <p />
+   <ul>
+     <li>
+       a list item
+@@ -7,4 +9,6 @@
+       another list item
+     </li>
+   </ul>
++  <p />
+ </div>
++<p />
+diff --git expected/list-in-div-tight.html nano-markdown/list-in-div-tight.html
+--- expected/list-in-div-tight.html
++++ nano-markdown/list-in-div-tight.html
+@@ -1,3 +1,12 @@
++<p />
+ <div>
+-  - not a list item - still not a list
++  <p />
++  <ul>
++    <li>
++      not a list item
++    </li>
++    <li>
++      still not a list
++    </li>
++  </ul>
+ </div>
+diff --git expected/md-after-close-tag-loose.html nano-markdown/md-after-close-tag-loose.html
+--- expected/md-after-close-tag-loose.html
++++ nano-markdown/md-after-close-tag-loose.html
+@@ -1,8 +1,10 @@
++<p />
+ <div>
+   content
+ </div>
++<p />
+ <p>
+-  <em>
++  <i>
+     emphasized — the blank line ended the block
+-  </em>
++  </i>
+ </p>
+diff --git expected/md-after-close-tag-tight.html nano-markdown/md-after-close-tag-tight.html
+--- expected/md-after-close-tag-tight.html
++++ nano-markdown/md-after-close-tag-tight.html
+@@ -1,4 +1,8 @@
++<p />
+ <div>
+   content
+ </div>
+-*not emphasized — still in the HTML block*
++<i>
++  not emphasized — still in the HTML block
++</i>
++<p />
+diff --git expected/md-in-div-loose.html nano-markdown/md-in-div-loose.html
+--- expected/md-in-div-loose.html
++++ nano-markdown/md-in-div-loose.html
+@@ -1,11 +1,15 @@
++<p />
+ <div>
++  <p />
+   <p>
+-    <em>
++    <i>
+       emphasized
+-    </em>
++    </i>
+     and
+-    <strong>
++    <b>
+       bold
+-    </strong>
++    </b>
+   </p>
++  <p />
+ </div>
++<p />
+diff --git expected/md-in-div-tight.html nano-markdown/md-in-div-tight.html
+--- expected/md-in-div-tight.html
++++ nano-markdown/md-in-div-tight.html
+@@ -1,3 +1,11 @@
++<p />
+ <div>
+-  *not emphasized* and **not bold**
++  <i>
++    not emphasized
++  </i>
++  and
++  <b>
++    not bold
++  </b>
+ </div>
++<p />
+diff --git expected/md-in-inline-code-tag.html nano-markdown/md-in-inline-code-tag.html
+--- expected/md-in-inline-code-tag.html
++++ nano-markdown/md-in-inline-code-tag.html
+@@ -1,9 +1,9 @@
+ <p>
+   Inline
+-  <code class="notranslate">
+-    <em>
++  <code>
++    <i>
+       emphasized inside a code tag
+-    </em>
++    </i>
+   </code>
+   here.
+ </p>
+diff --git expected/md-in-inline-span.html nano-markdown/md-in-inline-span.html
+--- expected/md-in-inline-span.html
++++ nano-markdown/md-in-inline-span.html
+@@ -1,13 +1,13 @@
+ <p>
+   Inline
+   <span>
+-    <em>
++    <i>
+       emphasized
+-    </em>
++    </i>
+     and
+-    <strong>
++    <b>
+       bold
+-    </strong>
++    </b>
+   </span>
+   stay markdown.
+ </p>
+diff --git expected/md-in-pre.html nano-markdown/md-in-pre.html
+--- expected/md-in-pre.html
++++ nano-markdown/md-in-pre.html
+@@ -1,3 +1,8 @@
+-<pre class="notranslate">
+-  *not emphasized* and # not a heading
++<p />
++<pre>
++  <i>
++    not emphasized
++  </i>
++  and # not a heading
+ </pre>
++<p />
+diff --git expected/md-in-table-html.html nano-markdown/md-in-table-html.html
+--- expected/md-in-table-html.html
++++ nano-markdown/md-in-table-html.html
+@@ -1,11 +1,14 @@
+-<markdown-accessiblity-table>
+-  <table role="table">
+-    <tbody>
+-      <tr>
+-        <td>
+-          *not emphasized* in a raw table
+-        </td>
+-      </tr>
+-    </tbody>
+-  </table>
+-</markdown-accessiblity-table>
++<p />
++<table>
++  <tbody>
++    <tr>
++      <td>
++        <i>
++          not emphasized
++        </i>
++        in a raw table
++      </td>
++    </tr>
++  </tbody>
++</table>
++<p />

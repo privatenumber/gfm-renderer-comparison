@@ -1,0 +1,2276 @@
+diff --git expected/comment-after-heading.html simple-markdown/comment-after-heading.html
+--- expected/comment-after-heading.html
++++ simple-markdown/comment-after-heading.html
+@@ -1,3 +1,3 @@
+ <h1>
+-  Heading text
++  Heading text <!-- trailing comment -->
+ </h1>
+diff --git expected/comment-backticks-in-table.html simple-markdown/comment-backticks-in-table.html
+--- expected/comment-backticks-in-table.html
++++ simple-markdown/comment-backticks-in-table.html
+@@ -1,26 +1,24 @@
+-<markdown-accessiblity-table>
+-  <table role="table">
+-    <thead>
+-      <tr>
+-        <th>
+-          Code
+-        </th>
+-        <th>
+-          Note
+-        </th>
+-      </tr>
+-    </thead>
+-    <tbody>
+-      <tr>
+-        <td>
+-          <code class="notranslate">
+-            <!-- c -->
+-          </code>
+-        </td>
+-        <td>
+-          literal
+-        </td>
+-      </tr>
+-    </tbody>
+-  </table>
+-</markdown-accessiblity-table>
++<table>
++  <thead>
++    <tr>
++      <th scope="col">
++        Code
++      </th>
++      <th scope="col">
++        Note
++      </th>
++    </tr>
++  </thead>
++  <tbody>
++    <tr>
++      <td>
++        <code>
++          <!-- c -->
++        </code>
++      </td>
++      <td>
++        literal
++      </td>
++    </tr>
++  </tbody>
++</table>
+diff --git expected/comment-block.html simple-markdown/comment-block.html
+--- expected/comment-block.html
++++ simple-markdown/comment-block.html
+@@ -1,6 +1,9 @@
+-<p>
++<div class="paragraph">
+   Before the comment.
+-</p>
+-<p>
++</div>
++<div class="paragraph">
++  <!-- a standalone block comment -->
++</div>
++<div class="paragraph">
+   After the comment.
+-</p>
++</div>
+diff --git expected/comment-in-code-span.html simple-markdown/comment-in-code-span.html
+--- expected/comment-in-code-span.html
++++ simple-markdown/comment-in-code-span.html
+@@ -1,7 +1,7 @@
+-<p>
++<div class="paragraph">
+   Inline code
+-  <code class="notranslate">
++  <code>
+     <!-- not a real comment -->
+   </code>
+   must stay literal.
+-</p>
++</div>
+diff --git expected/comment-in-fenced-code.html simple-markdown/comment-in-fenced-code.html
+--- expected/comment-in-fenced-code.html
++++ simple-markdown/comment-in-fenced-code.html
+@@ -1,26 +1,5 @@
+-<div class="highlight highlight-text-html-basic">
+-  <pre class="notranslate">
+-    <span class="pl-c">
+-      <!-- comment inside a fenced code block -->
+-    </span>
+-    <span class="pl-kos">
+-      <
+-    </span>
+-    <span class="pl-ent">
+-      div
+-    </span>
+-    <span class="pl-kos">
+-      >
+-    </span>
+-    x
+-    <span class="pl-kos">
+-      </
+-    </span>
+-    <span class="pl-ent">
+-      div
+-    </span>
+-    <span class="pl-kos">
+-      >
+-    </span>
+-  </pre>
+-</div>
++<pre>
++  <code class="markdown-code-html">
++    <!-- comment inside a fenced code block --> <div>x</div>
++  </code>
++</pre>
+diff --git expected/comment-in-indented-code.html simple-markdown/comment-in-indented-code.html
+--- expected/comment-in-indented-code.html
++++ simple-markdown/comment-in-indented-code.html
+@@ -1,5 +1,3 @@
+-<pre class="notranslate">
+-  <code class="notranslate">
+-    still code
+-  </code>
+-</pre>
++<div class="paragraph">
++  <!-- comment inside an indented code block --> still code
++</div>
+diff --git expected/comment-in-list.html simple-markdown/comment-in-list.html
+--- expected/comment-in-list.html
++++ simple-markdown/comment-in-list.html
+@@ -1,9 +1,7 @@
+ <ul>
+   <li>
+-    First item
++    First item <!-- comment between items -->
+   </li>
+-</ul>
+-<ul>
+   <li>
+     Second item
+   </li>
+diff --git expected/comment-in-table-cell.html simple-markdown/comment-in-table-cell.html
+--- expected/comment-in-table-cell.html
++++ simple-markdown/comment-in-table-cell.html
+@@ -1,22 +1,22 @@
+-<markdown-accessiblity-table>
+-  <table role="table">
+-    <thead>
+-      <tr>
+-        <th>
+-          Col A
+-        </th>
+-        <th>
+-          Col B
+-        </th>
+-      </tr>
+-    </thead>
+-    <tbody>
+-      <tr>
+-        <td />
+-        <td>
+-          visible
+-        </td>
+-      </tr>
+-    </tbody>
+-  </table>
+-</markdown-accessiblity-table>
++<table>
++  <thead>
++    <tr>
++      <th scope="col">
++        Col A
++      </th>
++      <th scope="col">
++        Col B
++      </th>
++    </tr>
++  </thead>
++  <tbody>
++    <tr>
++      <td>
++        <!-- raw comment -->
++      </td>
++      <td>
++        visible
++      </td>
++    </tr>
++  </tbody>
++</table>
+diff --git expected/comment-inline.html simple-markdown/comment-inline.html
+--- expected/comment-inline.html
++++ simple-markdown/comment-inline.html
+@@ -1,3 +1,3 @@
+-<p>
+-  Text before and text after.
+-</p>
++<div class="paragraph">
++  Text before <!-- inline comment --> and text after.
++</div>
+diff --git expected/comment-multiline.html simple-markdown/comment-multiline.html
+--- expected/comment-multiline.html
++++ simple-markdown/comment-multiline.html
+@@ -1 +1,3 @@
+-
++<div class="paragraph">
++  <!-- multi-line comment body -->
++</div>
+diff --git expected/comment-only.html simple-markdown/comment-only.html
+--- expected/comment-only.html
++++ simple-markdown/comment-only.html
+@@ -1 +1,3 @@
+-
++<div class="paragraph">
++  <!-- the entire document is only this comment -->
++</div>
+diff --git expected/comment-pipe-in-table.html simple-markdown/comment-pipe-in-table.html
+--- expected/comment-pipe-in-table.html
++++ simple-markdown/comment-pipe-in-table.html
+@@ -1,24 +1,25 @@
+-<markdown-accessiblity-table>
+-  <table role="table">
+-    <thead>
+-      <tr>
+-        <th>
+-          A
+-        </th>
+-        <th>
+-          B
+-        </th>
+-      </tr>
+-    </thead>
+-    <tbody>
+-      <tr>
+-        <td>
+-          <!-- a
+-        </td>
+-        <td>
+-          b -->
+-        </td>
+-      </tr>
+-    </tbody>
+-  </table>
+-</markdown-accessiblity-table>
++<table>
++  <thead>
++    <tr>
++      <th scope="col">
++        A
++      </th>
++      <th scope="col">
++        B
++      </th>
++    </tr>
++  </thead>
++  <tbody>
++    <tr>
++      <td>
++        <!-- a
++      </td>
++      <td>
++        b -->
++      </td>
++      <td>
++        c
++      </td>
++    </tr>
++  </tbody>
++</table>
+diff --git expected/comment-unclosed.html simple-markdown/comment-unclosed.html
+--- expected/comment-unclosed.html
++++ simple-markdown/comment-unclosed.html
+@@ -1,3 +1,3 @@
+-<p>
++<div class="paragraph">
+   Text then <!-- an unclosed comment that never ends
+-</p>
++</div>
+diff --git expected/comment-with-markdown.html simple-markdown/comment-with-markdown.html
+--- expected/comment-with-markdown.html
++++ simple-markdown/comment-with-markdown.html
+@@ -1 +1,14 @@
+-
++<div class="paragraph">
++  <!--
++  <strong>
++    bold
++  </strong>
++  <em>
++    italic
++  </em>
++  and
++  <a href="https://example.com">
++    a link
++  </a>
++  inside a comment -->
++</div>
+diff --git expected/comment-with-raw-html.html simple-markdown/comment-with-raw-html.html
+--- expected/comment-with-raw-html.html
++++ simple-markdown/comment-with-raw-html.html
+@@ -1 +1,3 @@
+-
++<div class="paragraph">
++  <!-- <div class="x">raw tags</div> and <script>alert(1)</script> inside -->
++</div>
+diff --git expected/atx-headings.html simple-markdown/atx-headings.html
+--- expected/atx-headings.html
++++ simple-markdown/atx-headings.html
+@@ -1,18 +1,3 @@
+-<h1>
+-  Heading 1
+-</h1>
+-<h2>
+-  Heading 2
+-</h2>
+-<h3>
+-  Heading 3
+-</h3>
+-<h4>
+-  Heading 4
+-</h4>
+-<h5>
+-  Heading 5
+-</h5>
+-<h6>
+-  Heading 6
+-</h6>
++<div class="paragraph">
++  # Heading 1 ## Heading 2 ### Heading 3 #### Heading 4 ##### Heading 5 ###### Heading 6
++</div>
+diff --git expected/backslash-escapes.html simple-markdown/backslash-escapes.html
+--- expected/backslash-escapes.html
++++ simple-markdown/backslash-escapes.html
+@@ -1,3 +1,3 @@
+-<p>
++<div class="paragraph">
+   *not emphasis* and `not code` and # not heading and [not link]
+-</p>
++</div>
+diff --git expected/blockquote.html simple-markdown/blockquote.html
+--- expected/blockquote.html
++++ simple-markdown/blockquote.html
+@@ -1,7 +1,5 @@
+ <blockquote>
+-  <p>
+-    A blockquote
+-    <br />
+-    spanning two lines.
+-  </p>
++  <div class="paragraph">
++    A blockquote spanning two lines.
++  </div>
+ </blockquote>
+diff --git expected/code-span.html simple-markdown/code-span.html
+--- expected/code-span.html
++++ simple-markdown/code-span.html
+@@ -1,11 +1,11 @@
+-<p>
++<div class="paragraph">
+   Use the
+-  <code class="notranslate">
++  <code>
+     printf()
+   </code>
+   function and
+-  <code class="notranslate">
++  <code>
+     a ` b
+   </code>
+   for literal backticks.
+-</p>
++</div>
+diff --git expected/emphasis.html simple-markdown/emphasis.html
+--- expected/emphasis.html
++++ simple-markdown/emphasis.html
+@@ -1,4 +1,4 @@
+-<p>
++<div class="paragraph">
+   <em>
+     italic
+   </em>
+@@ -11,13 +11,13 @@
+     bold
+   </strong>
+   and
+-  <strong>
++  <u>
+     bold
+-  </strong>
++  </u>
+   and
+   <em>
+     <strong>
+       bold italic
+     </strong>
+   </em>
+-</p>
++</div>
+diff --git expected/fenced-code-lang.html simple-markdown/fenced-code-lang.html
+--- expected/fenced-code-lang.html
++++ simple-markdown/fenced-code-lang.html
+@@ -1,40 +1,5 @@
+-<div class="highlight highlight-source-js">
+-  <pre class="notranslate">
+-    <span class="pl-k">
+-      const
+-    </span>
+-    <span class="pl-s1">
+-      x
+-    </span>
+-    <span class="pl-c1">
+-      =
+-    </span>
+-    <span class="pl-c1">
+-      1
+-    </span>
+-    <span class="pl-kos">
+-      ;
+-    </span>
+-    <span class="pl-smi">
+-      console
+-    </span>
+-    <span class="pl-kos">
+-      .
+-    </span>
+-    <span class="pl-en">
+-      log
+-    </span>
+-    <span class="pl-kos">
+-      (
+-    </span>
+-    <span class="pl-s1">
+-      x
+-    </span>
+-    <span class="pl-kos">
+-      )
+-    </span>
+-    <span class="pl-kos">
+-      ;
+-    </span>
+-  </pre>
+-</div>
++<pre>
++  <code class="markdown-code-js">
++    const x = 1; console.log(x);
++  </code>
++</pre>
+diff --git expected/fenced-code.html simple-markdown/fenced-code.html
+--- expected/fenced-code.html
++++ simple-markdown/fenced-code.html
+@@ -1,5 +1,5 @@
+-<pre class="notranslate">
+-  <code class="notranslate">
++<pre>
++  <code>
+     plain fenced code no language
+   </code>
+ </pre>
+diff --git expected/hard-break-backslash.html simple-markdown/hard-break-backslash.html
+--- expected/hard-break-backslash.html
++++ simple-markdown/hard-break-backslash.html
+@@ -1,5 +1,3 @@
+-<p>
+-  Line one with a backslash
+-  <br />
+-  Line two after a hard break.
+-</p>
++<div class="paragraph">
++  Line one with a backslash\ Line two after a hard break.
++</div>
+diff --git expected/hard-break-spaces.html simple-markdown/hard-break-spaces.html
+--- expected/hard-break-spaces.html
++++ simple-markdown/hard-break-spaces.html
+@@ -1,5 +1,5 @@
+-<p>
++<div class="paragraph">
+   Line one with trailing spaces
+   <br />
+   Line two after a hard break.
+-</p>
++</div>
+diff --git expected/html-block.html simple-markdown/html-block.html
+--- expected/html-block.html
++++ simple-markdown/html-block.html
+@@ -1,5 +1,3 @@
+-<div>
+-  <p>
+-    A raw HTML block.
+-  </p>
++<div class="paragraph">
++  <div class="note"> <p>A raw HTML block.</p> </div>
+ </div>
+diff --git expected/image.html simple-markdown/image.html
+--- expected/image.html
++++ simple-markdown/image.html
+@@ -1,5 +1,3 @@
+-<p>
+-  <a href="https://camo.githubusercontent.com/27bcedb12cbae144ef3b1cb45d969d3058276761f6169891e0cdb7a49d1ef7fd/68747470733a2f2f6578616d706c652e636f6d2f696d6167652e706e67" rel="noopener noreferrer nofollow" target="_blank">
+-    <img alt="alt text" data-canonical-src="https://example.com/image.png" src="https://camo.githubusercontent.com/27bcedb12cbae144ef3b1cb45d969d3058276761f6169891e0cdb7a49d1ef7fd/68747470733a2f2f6578616d706c652e636f6d2f696d6167652e706e67" style="max-width: 100%;" title="Image Title" />
+-  </a>
+-</p>
++<div class="paragraph">
++  <img alt="alt text" src="https://example.com/image.png" title="Image Title" />
++</div>
+diff --git expected/indented-code.html simple-markdown/indented-code.html
+--- expected/indented-code.html
++++ simple-markdown/indented-code.html
+@@ -1,5 +1,3 @@
+-<p>
+-  indented code block
+-  <br />
+-  second line
+-</p>
++<div class="paragraph">
++  indented code block second line
++</div>
+diff --git expected/inline-html.html simple-markdown/inline-html.html
+--- expected/inline-html.html
++++ simple-markdown/inline-html.html
+@@ -1,9 +1,3 @@
+-<p>
+-  Text with
+-  <strong>
+-    inline html
+-  </strong>
+-  and a
+-  <br />
+-  break.
+-</p>
++<div class="paragraph">
++  Text with <strong>inline html</strong> and a <br> break.
++</div>
+diff --git expected/inline-link.html simple-markdown/inline-link.html
+--- expected/inline-link.html
++++ simple-markdown/inline-link.html
+@@ -1,7 +1,7 @@
+-<p>
++<div class="paragraph">
+   An
+-  <a href="https://example.com" rel="nofollow">
++  <a href="https://example.com">
+     inline link
+   </a>
+   in text.
+-</p>
++</div>
+diff --git expected/intraword-emphasis.html simple-markdown/intraword-emphasis.html
+--- expected/intraword-emphasis.html
++++ simple-markdown/intraword-emphasis.html
+@@ -1,4 +1,4 @@
+-<p>
++<div class="paragraph">
+   foo
+   <em>
+     bar
+@@ -8,4 +8,4 @@
+     6
+   </em>
+   7
+-</p>
++</div>
+diff --git expected/link-with-title.html simple-markdown/link-with-title.html
+--- expected/link-with-title.html
++++ simple-markdown/link-with-title.html
+@@ -1,7 +1,7 @@
+-<p>
++<div class="paragraph">
+   A
+-  <a href="https://example.com" rel="nofollow" title="Example Title">
++  <a href="https://example.com" title="Example Title">
+     titled link
+   </a>
+   here.
+-</p>
++</div>
+diff --git expected/loose-list.html simple-markdown/loose-list.html
+--- expected/loose-list.html
++++ simple-markdown/loose-list.html
+@@ -1,12 +1,12 @@
+ <ul>
+   <li>
+-    <p>
++    <div class="paragraph">
+       Item one
+-    </p>
++    </div>
+   </li>
+   <li>
+-    <p>
++    <div class="paragraph">
+       Item two with a blank line before it
+-    </p>
++    </div>
+   </li>
+ </ul>
+diff --git expected/named-entity.html simple-markdown/named-entity.html
+--- expected/named-entity.html
++++ simple-markdown/named-entity.html
+@@ -1,3 +1,3 @@
+-<p>
+-  Ampersand & copyright © less-than < and a non-entity .
+-</p>
++<div class="paragraph">
++  Ampersand &amp; copyright &copy; less-than &lt; and a non-entity &nbsp;.
++</div>
+diff --git expected/nested-blockquote.html simple-markdown/nested-blockquote.html
+--- expected/nested-blockquote.html
++++ simple-markdown/nested-blockquote.html
+@@ -1,12 +1,5 @@
+ <blockquote>
+-  <p>
+-    Outer
+-  </p>
+-  <blockquote>
+-    <p>
+-      Inner nested
+-      <br />
+-      quote
+-    </p>
+-  </blockquote>
++  <div class="paragraph">
++    Outer > Inner nested > quote
++  </div>
+ </blockquote>
+diff --git expected/numeric-entity.html simple-markdown/numeric-entity.html
+--- expected/numeric-entity.html
++++ simple-markdown/numeric-entity.html
+@@ -1,3 +1,3 @@
+-<p>
+-  Decimal # and hex ☺ entities.
+-</p>
++<div class="paragraph">
++  Decimal &#35; and hex &#x263A; entities.
++</div>
+diff --git expected/ordered-list.html simple-markdown/ordered-list.html
+--- expected/ordered-list.html
++++ simple-markdown/ordered-list.html
+@@ -1,4 +1,4 @@
+-<ol>
++<ol start="1">
+   <li>
+     First
+   </li>
+diff --git expected/paragraphs-softbreak.html simple-markdown/paragraphs-softbreak.html
+--- expected/paragraphs-softbreak.html
++++ simple-markdown/paragraphs-softbreak.html
+@@ -1,8 +1,6 @@
+-<p>
+-  First line of a paragraph
+-  <br />
+-  second line after a soft break.
+-</p>
+-<p>
++<div class="paragraph">
++  First line of a paragraph second line after a soft break.
++</div>
++<div class="paragraph">
+   A second paragraph.
+-</p>
++</div>
+diff --git expected/pointy-autolink.html simple-markdown/pointy-autolink.html
+--- expected/pointy-autolink.html
++++ simple-markdown/pointy-autolink.html
+@@ -1,6 +1,6 @@
+-<p>
++<div class="paragraph">
+   Pointy autolink
+-  <a href="https://example.com" rel="nofollow">
++  <a href="https://example.com">
+     https://example.com
+   </a>
+   and email
+@@ -8,4 +8,4 @@
+     test@example.com
+   </a>
+   .
+-</p>
++</div>
+diff --git expected/reference-link.html simple-markdown/reference-link.html
+--- expected/reference-link.html
++++ simple-markdown/reference-link.html
+@@ -1,7 +1,7 @@
+-<p>
++<div class="paragraph">
+   A
+-  <a href="https://example.com" rel="nofollow" title="Reference">
++  <a href="https://example.com" title="Reference">
+     reference link
+   </a>
+   in text.
+-</p>
++</div>
+diff --git expected/thematic-break.html simple-markdown/thematic-break.html
+--- expected/thematic-break.html
++++ simple-markdown/thematic-break.html
+@@ -1,7 +1,7 @@
+-<p>
++<div class="paragraph">
+   Above
+-</p>
+-<hr />
+-<p>
++</div>
++<hr aria-hidden="true" />
++<div class="paragraph">
+   Below
+-</p>
++</div>
+diff --git expected/ampersand-in-url.html simple-markdown/ampersand-in-url.html
+--- expected/ampersand-in-url.html
++++ simple-markdown/ampersand-in-url.html
+@@ -1,7 +1,7 @@
+-<p>
++<div class="paragraph">
+   A
+-  <a href="https://example.com/search?a=1&b=2&c=3" rel="nofollow">
++  <a href="https://example.com/search?a=1&b=2&c=3">
+     query link
+   </a>
+   with ampersands.
+-</p>
++</div>
+diff --git expected/backtick-in-code.html simple-markdown/backtick-in-code.html
+--- expected/backtick-in-code.html
++++ simple-markdown/backtick-in-code.html
+@@ -1,11 +1,11 @@
+-<p>
++<div class="paragraph">
+   Inline
+-  <code class="notranslate">
++  <code>
+     code with ` backtick
+   </code>
+   and
+-  <code class="notranslate">
++  <code>
+     triple ` inside
+   </code>
+   .
+-</p>
++</div>
+diff --git expected/blockquote-with-heading.html simple-markdown/blockquote-with-heading.html
+--- expected/blockquote-with-heading.html
++++ simple-markdown/blockquote-with-heading.html
+@@ -2,7 +2,7 @@
+   <h1>
+     Heading inside a quote
+   </h1>
+-  <p>
++  <div class="paragraph">
+     And a paragraph.
+-  </p>
++  </div>
+ </blockquote>
+diff --git expected/code-block-with-html.html simple-markdown/code-block-with-html.html
+--- expected/code-block-with-html.html
++++ simple-markdown/code-block-with-html.html
+@@ -1,60 +1,5 @@
+-<div class="highlight highlight-text-html-basic">
+-  <pre class="notranslate">
+-    <span class="pl-kos">
+-      <
+-    </span>
+-    <span class="pl-ent">
+-      div
+-    </span>
+-    <span class="pl-c1">
+-      class
+-    </span>
+-    ="
+-    <span class="pl-s">
+-      x
+-    </span>
+-    "
+-    <span class="pl-kos">
+-      >
+-    </span>
+-    <span class="pl-kos">
+-      <
+-    </span>
+-    <span class="pl-ent">
+-      script
+-    </span>
+-    <span class="pl-kos">
+-      >
+-    </span>
+-    <span class="pl-en">
+-      alert
+-    </span>
+-    <span class="pl-kos">
+-      (
+-    </span>
+-    <span class="pl-c1">
+-      1
+-    </span>
+-    <span class="pl-kos">
+-      )
+-    </span>
+-    <span class="pl-kos">
+-      </
+-    </span>
+-    <span class="pl-ent">
+-      script
+-    </span>
+-    <span class="pl-kos">
+-      >
+-    </span>
+-    <span class="pl-kos">
+-      </
+-    </span>
+-    <span class="pl-ent">
+-      div
+-    </span>
+-    <span class="pl-kos">
+-      >
+-    </span>
+-  </pre>
+-</div>
++<pre>
++  <code class="markdown-code-html">
++    <div class="x"> <script>alert(1)</script> </div>
++  </code>
++</pre>
+diff --git expected/consecutive-emphasis.html simple-markdown/consecutive-emphasis.html
+--- expected/consecutive-emphasis.html
++++ simple-markdown/consecutive-emphasis.html
+@@ -1,4 +1,4 @@
+-<p>
++<div class="paragraph">
+   <strong>
+     bold
+   </strong>
+@@ -9,4 +9,4 @@
+     bold
+   </strong>
+   with no spaces between runs.
+-</p>
++</div>
+diff --git expected/emphasis-in-link.html simple-markdown/emphasis-in-link.html
+--- expected/emphasis-in-link.html
++++ simple-markdown/emphasis-in-link.html
+@@ -1,6 +1,6 @@
+-<p>
++<div class="paragraph">
+   A
+-  <a href="https://example.com" rel="nofollow">
++  <a href="https://example.com">
+     link with
+     <strong>
+       bold
+@@ -11,4 +11,4 @@
+     </em>
+   </a>
+   text.
+-</p>
++</div>
+diff --git expected/escaped-pipe-outside-table.html simple-markdown/escaped-pipe-outside-table.html
+--- expected/escaped-pipe-outside-table.html
++++ simple-markdown/escaped-pipe-outside-table.html
+@@ -1,3 +1,3 @@
+-<p>
++<div class="paragraph">
+   Not a table: a | b | c just text with escaped pipes.
+-</p>
++</div>
+diff --git expected/html-inside-table.html simple-markdown/html-inside-table.html
+--- expected/html-inside-table.html
++++ simple-markdown/html-inside-table.html
+@@ -1,36 +1,30 @@
+-<markdown-accessiblity-table>
+-  <table role="table">
+-    <thead>
+-      <tr>
+-        <th>
+-          Tag
+-        </th>
+-        <th>
+-          Example
+-        </th>
+-      </tr>
+-    </thead>
+-    <tbody>
+-      <tr>
+-        <td>
+-          bold
+-        </td>
+-        <td>
+-          <strong>
+-            hi
+-          </strong>
+-        </td>
+-      </tr>
+-      <tr>
+-        <td>
+-          break
+-        </td>
+-        <td>
+-          a
+-          <br />
+-          b
+-        </td>
+-      </tr>
+-    </tbody>
+-  </table>
+-</markdown-accessiblity-table>
++<table>
++  <thead>
++    <tr>
++      <th scope="col">
++        Tag
++      </th>
++      <th scope="col">
++        Example
++      </th>
++    </tr>
++  </thead>
++  <tbody>
++    <tr>
++      <td>
++        bold
++      </td>
++      <td>
++        <strong>hi</strong>
++      </td>
++    </tr>
++    <tr>
++      <td>
++        break
++      </td>
++      <td>
++        a<br>b
++      </td>
++    </tr>
++  </tbody>
++</table>
+diff --git expected/link-with-parens-in-url.html simple-markdown/link-with-parens-in-url.html
+--- expected/link-with-parens-in-url.html
++++ simple-markdown/link-with-parens-in-url.html
+@@ -1,7 +1,7 @@
+-<p>
++<div class="paragraph">
+   See
+-  <a href="https://en.wikipedia.org/wiki/Markdown_(disambiguation)" rel="nofollow">
++  <a href="https://en.wikipedia.org/wiki/Markdown_(disambiguation)">
+     Wikipedia
+   </a>
+   article.
+-</p>
++</div>
+diff --git expected/list-with-blockquote.html simple-markdown/list-with-blockquote.html
+--- expected/list-with-blockquote.html
++++ simple-markdown/list-with-blockquote.html
+@@ -1,19 +1,17 @@
+ <ul>
+   <li>
+-    <p>
++    <div class="paragraph">
+       A list item containing
+-    </p>
++    </div>
+     <blockquote>
+-      <p>
+-        a blockquote
+-        <br />
+-        inside the item
+-      </p>
++      <div class="paragraph">
++        a blockquote inside the item
++      </div>
+     </blockquote>
+   </li>
+   <li>
+-    <p>
++    <div class="paragraph">
+       Next item
+-    </p>
++    </div>
+   </li>
+ </ul>
+diff --git expected/list-with-fenced-code.html simple-markdown/list-with-fenced-code.html
+--- expected/list-with-fenced-code.html
++++ simple-markdown/list-with-fenced-code.html
+@@ -1,20 +1,17 @@
+-<ol>
++<ol start="1">
+   <li>
+-    <p>
++    <div class="paragraph">
+       First step:
+-    </p>
+-    <div class="highlight highlight-source-shell">
+-      <pre class="notranslate">
+-        <span class="pl-c1">
+-          echo
+-        </span>
+-        hello
+-      </pre>
+     </div>
++    <pre>
++      <code class="markdown-code-bash">
++        echo hello
++      </code>
++    </pre>
+   </li>
+   <li>
+-    <p>
++    <div class="paragraph">
+       Second step after the code block.
+-    </p>
++    </div>
+   </li>
+ </ol>
+diff --git expected/multiple-blank-lines.html simple-markdown/multiple-blank-lines.html
+--- expected/multiple-blank-lines.html
++++ simple-markdown/multiple-blank-lines.html
+@@ -1,6 +1,6 @@
+-<p>
++<div class="paragraph">
+   Paragraph one.
+-</p>
+-<p>
++</div>
++<div class="paragraph">
+   Paragraph two after multiple blank lines.
+-</p>
++</div>
+diff --git expected/nested-mixed-list.html simple-markdown/nested-mixed-list.html
+--- expected/nested-mixed-list.html
++++ simple-markdown/nested-mixed-list.html
+@@ -1,14 +1,9 @@
+-<ol>
++<ol start="1">
+   <li>
+     Ordered parent
+     <ul>
+       <li>
+-        Unordered child
+-        <ol>
+-          <li>
+-            Ordered grandchild
+-          </li>
+-        </ol>
++        Unordered child 1. Ordered grandchild
+       </li>
+       <li>
+         Another child
+diff --git expected/raw-html-comment.html simple-markdown/raw-html-comment.html
+--- expected/raw-html-comment.html
++++ simple-markdown/raw-html-comment.html
+@@ -1,6 +1,9 @@
+-<p>
++<div class="paragraph">
+   Before comment.
+-</p>
+-<p>
++</div>
++<div class="paragraph">
++  <!-- this is an HTML comment -->
++</div>
++<div class="paragraph">
+   After comment.
+-</p>
++</div>
+diff --git expected/setext-vs-list.html simple-markdown/setext-vs-list.html
+--- expected/setext-vs-list.html
++++ simple-markdown/setext-vs-list.html
+@@ -1,6 +1,3 @@
+-<ul>
+-  <li>
+-    item
+-  </li>
+-</ul>
+-<hr />
++<h2>
++  - item
++</h2>
+diff --git expected/special-chars-in-text.html simple-markdown/special-chars-in-text.html
+--- expected/special-chars-in-text.html
++++ simple-markdown/special-chars-in-text.html
+@@ -1,3 +1,3 @@
+-<p>
++<div class="paragraph">
+   Less-than < and greater-than > and ampersand & and quote " in plain text.
+-</p>
++</div>
+diff --git expected/tight-vs-loose.html simple-markdown/tight-vs-loose.html
+--- expected/tight-vs-loose.html
++++ simple-markdown/tight-vs-loose.html
+@@ -6,18 +6,18 @@
+     tight two
+   </li>
+ </ul>
+-<p>
++<div class="paragraph">
+   paragraph between
+-</p>
+-<ol>
++</div>
++<ol start="1">
+   <li>
+-    <p>
++    <div class="paragraph">
+       loose one
+-    </p>
++    </div>
+   </li>
+   <li>
+-    <p>
++    <div class="paragraph">
+       loose two
+-    </p>
++    </div>
+   </li>
+ </ol>
+diff --git expected/unicode-text.html simple-markdown/unicode-text.html
+--- expected/unicode-text.html
++++ simple-markdown/unicode-text.html
+@@ -1,3 +1,3 @@
+-<p>
++<div class="paragraph">
+   Unicode: café, naïve, 日本語, emoji 🎉, and combining e\u0301.
+-</p>
++</div>
+diff --git expected/autolink-email.html simple-markdown/autolink-email.html
+--- expected/autolink-email.html
++++ simple-markdown/autolink-email.html
+@@ -1,7 +1,3 @@
+-<p>
+-  Email me at
+-  <a href="mailto:someone@example.com">
+-    someone@example.com
+-  </a>
+-  please.
+-</p>
++<div class="paragraph">
++  Email me at someone@example.com please.
++</div>
+diff --git expected/autolink-in-parentheses.html simple-markdown/autolink-in-parentheses.html
+--- expected/autolink-in-parentheses.html
++++ simple-markdown/autolink-in-parentheses.html
+@@ -1,7 +1,3 @@
+-<p>
+-  A link
+-  <a href="http://www.example.com/foo_(bar)" rel="nofollow">
+-    www.example.com/foo_(bar)
+-  </a>
+-  with balanced parens.
+-</p>
++<div class="paragraph">
++  A link www.example.com/foo_(bar) with balanced parens.
++</div>
+diff --git expected/autolink-trailing-punctuation.html simple-markdown/autolink-trailing-punctuation.html
+--- expected/autolink-trailing-punctuation.html
++++ simple-markdown/autolink-trailing-punctuation.html
+@@ -1,15 +1,15 @@
+-<p>
++<div class="paragraph">
+   See (
+-  <a href="https://example.com" rel="nofollow">
++  <a href="https://example.com">
+     https://example.com
+   </a>
+   ) and
+-  <a href="https://example.com" rel="nofollow">
++  <a href="https://example.com">
+     https://example.com
+   </a>
+   . and
+-  <a href="https://example.com/path?a=1&b=2" rel="nofollow">
++  <a href="https://example.com/path?a=1&b=2">
+     https://example.com/path?a=1&b=2
+   </a>
+   .
+-</p>
++</div>
+diff --git expected/autolink-url.html simple-markdown/autolink-url.html
+--- expected/autolink-url.html
++++ simple-markdown/autolink-url.html
+@@ -1,11 +1,11 @@
+-<p>
++<div class="paragraph">
+   Visit
+-  <a href="https://example.com" rel="nofollow">
++  <a href="https://example.com">
+     https://example.com
+   </a>
+   for more, or
+-  <a href="http://test.org" rel="nofollow">
++  <a href="http://test.org">
+     http://test.org
+   </a>
+   too.
+-</p>
++</div>
+diff --git expected/autolink-www.html simple-markdown/autolink-www.html
+--- expected/autolink-www.html
++++ simple-markdown/autolink-www.html
+@@ -1,7 +1,3 @@
+-<p>
+-  Check out
+-  <a href="http://www.example.com" rel="nofollow">
+-    www.example.com
+-  </a>
+-  for details.
+-</p>
++<div class="paragraph">
++  Check out www.example.com for details.
++</div>
+diff --git expected/strikethrough-double.html simple-markdown/strikethrough-double.html
+--- expected/strikethrough-double.html
++++ simple-markdown/strikethrough-double.html
+@@ -1,7 +1,7 @@
+-<p>
++<div class="paragraph">
+   This is
+   <del>
+     struck through
+   </del>
+   text.
+-</p>
++</div>
+diff --git expected/strikethrough-nested.html simple-markdown/strikethrough-nested.html
+--- expected/strikethrough-nested.html
++++ simple-markdown/strikethrough-nested.html
+@@ -1,4 +1,4 @@
+-<p>
++<div class="paragraph">
+   <del>
+     struck with
+     <strong>
+@@ -10,4 +10,4 @@
+     </em>
+     inside
+   </del>
+-</p>
++</div>
+diff --git expected/strikethrough-single.html simple-markdown/strikethrough-single.html
+--- expected/strikethrough-single.html
++++ simple-markdown/strikethrough-single.html
+@@ -1,7 +1,3 @@
+-<p>
+-  This is
+-  <del>
+-    single tilde
+-  </del>
+-  text.
+-</p>
++<div class="paragraph">
++  This is ~single tilde~ text.
++</div>
+diff --git expected/table-alignment.html simple-markdown/table-alignment.html
+--- expected/table-alignment.html
++++ simple-markdown/table-alignment.html
+@@ -1,41 +1,39 @@
+-<markdown-accessiblity-table>
+-  <table role="table">
+-    <thead>
+-      <tr>
+-        <th align="left">
+-          Left
+-        </th>
+-        <th align="center">
+-          Center
+-        </th>
+-        <th align="right">
+-          Right
+-        </th>
+-      </tr>
+-    </thead>
+-    <tbody>
+-      <tr>
+-        <td align="left">
+-          a
+-        </td>
+-        <td align="center">
+-          b
+-        </td>
+-        <td align="right">
+-          c
+-        </td>
+-      </tr>
+-      <tr>
+-        <td align="left">
+-          dd
+-        </td>
+-        <td align="center">
+-          ee
+-        </td>
+-        <td align="right">
+-          ff
+-        </td>
+-      </tr>
+-    </tbody>
+-  </table>
+-</markdown-accessiblity-table>
++<table>
++  <thead>
++    <tr>
++      <th scope="col" style="text-align:left;">
++        Left
++      </th>
++      <th scope="col" style="text-align:center;">
++        Center
++      </th>
++      <th scope="col" style="text-align:right;">
++        Right
++      </th>
++    </tr>
++  </thead>
++  <tbody>
++    <tr>
++      <td style="text-align:left;">
++        a
++      </td>
++      <td style="text-align:center;">
++        b
++      </td>
++      <td style="text-align:right;">
++        c
++      </td>
++    </tr>
++    <tr>
++      <td style="text-align:left;">
++        dd
++      </td>
++      <td style="text-align:center;">
++        ee
++      </td>
++      <td style="text-align:right;">
++        ff
++      </td>
++    </tr>
++  </tbody>
++</table>
+diff --git expected/table-basic.html simple-markdown/table-basic.html
+--- expected/table-basic.html
++++ simple-markdown/table-basic.html
+@@ -1,32 +1,30 @@
+-<markdown-accessiblity-table>
+-  <table role="table">
+-    <thead>
+-      <tr>
+-        <th>
+-          Fruit
+-        </th>
+-        <th>
+-          Color
+-        </th>
+-      </tr>
+-    </thead>
+-    <tbody>
+-      <tr>
+-        <td>
+-          Apple
+-        </td>
+-        <td>
+-          Red
+-        </td>
+-      </tr>
+-      <tr>
+-        <td>
+-          Lime
+-        </td>
+-        <td>
+-          Green
+-        </td>
+-      </tr>
+-    </tbody>
+-  </table>
+-</markdown-accessiblity-table>
++<table>
++  <thead>
++    <tr>
++      <th scope="col">
++        Fruit
++      </th>
++      <th scope="col">
++        Color
++      </th>
++    </tr>
++  </thead>
++  <tbody>
++    <tr>
++      <td>
++        Apple
++      </td>
++      <td>
++        Red
++      </td>
++    </tr>
++    <tr>
++      <td>
++        Lime
++      </td>
++      <td>
++        Green
++      </td>
++    </tr>
++  </tbody>
++</table>
+diff --git expected/table-escaped-pipe.html simple-markdown/table-escaped-pipe.html
+--- expected/table-escaped-pipe.html
++++ simple-markdown/table-escaped-pipe.html
+@@ -1,24 +1,22 @@
+-<markdown-accessiblity-table>
+-  <table role="table">
+-    <thead>
+-      <tr>
+-        <th>
+-          Column
+-        </th>
+-        <th>
+-          Value
+-        </th>
+-      </tr>
+-    </thead>
+-    <tbody>
+-      <tr>
+-        <td>
+-          pipe
+-        </td>
+-        <td>
+-          a | b
+-        </td>
+-      </tr>
+-    </tbody>
+-  </table>
+-</markdown-accessiblity-table>
++<table>
++  <thead>
++    <tr>
++      <th scope="col">
++        Column
++      </th>
++      <th scope="col">
++        Value
++      </th>
++    </tr>
++  </thead>
++  <tbody>
++    <tr>
++      <td>
++        pipe
++      </td>
++      <td>
++        a | b
++      </td>
++    </tr>
++  </tbody>
++</table>
+diff --git expected/table-inline-formatting.html simple-markdown/table-inline-formatting.html
+--- expected/table-inline-formatting.html
++++ simple-markdown/table-inline-formatting.html
+@@ -1,40 +1,38 @@
+-<markdown-accessiblity-table>
+-  <table role="table">
+-    <thead>
+-      <tr>
+-        <th>
+-          Syntax
+-        </th>
+-        <th>
+-          Renders
+-        </th>
+-      </tr>
+-    </thead>
+-    <tbody>
+-      <tr>
+-        <td>
+-          <code class="notranslate">
+-            code
+-          </code>
+-        </td>
+-        <td>
+-          <strong>
+-            bold
+-          </strong>
+-        </td>
+-      </tr>
+-      <tr>
+-        <td>
+-          <del>
+-            old
+-          </del>
+-        </td>
+-        <td>
+-          <a href="https://example.com" rel="nofollow">
+-            link
+-          </a>
+-        </td>
+-      </tr>
+-    </tbody>
+-  </table>
+-</markdown-accessiblity-table>
++<table>
++  <thead>
++    <tr>
++      <th scope="col">
++        Syntax
++      </th>
++      <th scope="col">
++        Renders
++      </th>
++    </tr>
++  </thead>
++  <tbody>
++    <tr>
++      <td>
++        <code>
++          code
++        </code>
++      </td>
++      <td>
++        <strong>
++          bold
++        </strong>
++      </td>
++    </tr>
++    <tr>
++      <td>
++        <del>
++          old
++        </del>
++      </td>
++      <td>
++        <a href="https://example.com">
++          link
++        </a>
++      </td>
++    </tr>
++  </tbody>
++</table>
+diff --git expected/table-no-body.html simple-markdown/table-no-body.html
+--- expected/table-no-body.html
++++ simple-markdown/table-no-body.html
+@@ -1,14 +1,17 @@
+-<markdown-accessiblity-table>
+-  <table role="table">
+-    <thead>
+-      <tr>
+-        <th>
+-          Header A
+-        </th>
+-        <th>
+-          Header B
+-        </th>
+-      </tr>
+-    </thead>
+-  </table>
+-</markdown-accessiblity-table>
++<table>
++  <thead>
++    <tr>
++      <th scope="col">
++        Header A
++      </th>
++      <th scope="col">
++        Header B
++      </th>
++    </tr>
++  </thead>
++  <tbody>
++    <tr>
++      <td />
++    </tr>
++  </tbody>
++</table>
+diff --git expected/table-ragged.html simple-markdown/table-ragged.html
+--- expected/table-ragged.html
++++ simple-markdown/table-ragged.html
+@@ -1,37 +1,36 @@
+-<markdown-accessiblity-table>
+-  <table role="table">
+-    <thead>
+-      <tr>
+-        <th>
+-          A
+-        </th>
+-        <th>
+-          B
+-        </th>
+-        <th>
+-          C
+-        </th>
+-      </tr>
+-    </thead>
+-    <tbody>
+-      <tr>
+-        <td>
+-          only one
+-        </td>
+-        <td />
+-        <td />
+-      </tr>
+-      <tr>
+-        <td>
+-          1
+-        </td>
+-        <td>
+-          2
+-        </td>
+-        <td>
+-          3
+-        </td>
+-      </tr>
+-    </tbody>
+-  </table>
+-</markdown-accessiblity-table>
++<table>
++  <thead>
++    <tr>
++      <th scope="col">
++        A
++      </th>
++      <th scope="col">
++        B
++      </th>
++      <th scope="col">
++        C
++      </th>
++    </tr>
++  </thead>
++  <tbody>
++    <tr>
++      <td>
++        only one
++      </td>
++    </tr>
++    <tr>
++      <td>
++        1
++      </td>
++      <td>
++        2
++      </td>
++      <td>
++        3
++      </td>
++      <td>
++        4
++      </td>
++    </tr>
++  </tbody>
++</table>
+diff --git expected/tagfilter.html simple-markdown/tagfilter.html
+--- expected/tagfilter.html
++++ simple-markdown/tagfilter.html
+@@ -1,3 +1,3 @@
+-<p>
++<div class="paragraph">
+   A <title> tag and a <textarea> and <xmp> and <script>alert(1)</script> raw.
+-</p>
++</div>
+diff --git expected/tasklist-nested.html simple-markdown/tasklist-nested.html
+--- expected/tasklist-nested.html
++++ simple-markdown/tasklist-nested.html
+@@ -1,15 +1,12 @@
+-<ul class="contains-task-list">
+-  <li class="task-list-item">
+-    <input aria-label="Incomplete task" class="task-list-item-checkbox" disabled id="" type="checkbox" />
+-    Parent task
+-    <ul class="contains-task-list">
+-      <li class="task-list-item">
+-        <input aria-label="Completed task" checked class="task-list-item-checkbox" disabled id="" type="checkbox" />
+-        Child done
++<ul>
++  <li>
++    [ ] Parent task
++    <ul>
++      <li>
++        [x] Child done
+       </li>
+-      <li class="task-list-item">
+-        <input aria-label="Incomplete task" class="task-list-item-checkbox" disabled id="" type="checkbox" />
+-        Child todo
++      <li>
++        [ ] Child todo
+       </li>
+     </ul>
+   </li>
+diff --git expected/tasklist-with-formatting.html simple-markdown/tasklist-with-formatting.html
+--- expected/tasklist-with-formatting.html
++++ simple-markdown/tasklist-with-formatting.html
+@@ -1,19 +1,17 @@
+-<ul class="contains-task-list">
+-  <li class="task-list-item">
+-    <input aria-label="Completed task" checked class="task-list-item-checkbox" disabled id="" type="checkbox" />
+-    Task with
++<ul>
++  <li>
++    [x] Task with
+     <strong>
+       bold
+     </strong>
+     and a
+-    <a href="https://example.com" rel="nofollow">
++    <a href="https://example.com">
+       link
+     </a>
+   </li>
+-  <li class="task-list-item">
+-    <input aria-label="Incomplete task" class="task-list-item-checkbox" disabled id="" type="checkbox" />
+-    Task with
+-    <code class="notranslate">
++  <li>
++    [ ] Task with
++    <code>
+       code
+     </code>
+   </li>
+diff --git expected/tasklist.html simple-markdown/tasklist.html
+--- expected/tasklist.html
++++ simple-markdown/tasklist.html
+@@ -1,14 +1,11 @@
+-<ul class="contains-task-list">
+-  <li class="task-list-item">
+-    <input aria-label="Completed task" checked class="task-list-item-checkbox" disabled id="" type="checkbox" />
+-    Completed task
++<ul>
++  <li>
++    [x] Completed task
+   </li>
+-  <li class="task-list-item">
+-    <input aria-label="Incomplete task" class="task-list-item-checkbox" disabled id="" type="checkbox" />
+-    Incomplete task
++  <li>
++    [ ] Incomplete task
+   </li>
+-  <li class="task-list-item">
+-    <input aria-label="Completed task" checked class="task-list-item-checkbox" disabled id="" type="checkbox" />
+-    Capital X also checked
++  <li>
++    [X] Capital X also checked
+   </li>
+ </ul>
+diff --git expected/alert-caution.html simple-markdown/alert-caution.html
+--- expected/alert-caution.html
++++ simple-markdown/alert-caution.html
+@@ -1,11 +1,5 @@
+-<div class="markdown-alert markdown-alert-caution">
+-  <p class="markdown-alert-title">
+-    <svg aria-hidden="true" class="octicon octicon-stop mr-2" data-component="Octicon" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+-      <path d="M4.47.22A.749.749 0 0 1 5 0h6c.199 0 .389.079.53.22l4.25 4.25c.141.14.22.331.22.53v6a.749.749 0 0 1-.22.53l-4.25 4.25A.749.749 0 0 1 11 16H5a.749.749 0 0 1-.53-.22L.22 11.53A.749.749 0 0 1 0 11V5c0-.199.079-.389.22-.53Zm.84 1.28L1.5 5.31v5.38l3.81 3.81h5.38l3.81-3.81V5.31L10.69 1.5ZM8 4a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 8 4Zm0 8a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z" />
+-    </svg>
+-    Caution
+-  </p>
+-  <p>
+-    Advises about risks or negative outcomes of certain actions.
+-  </p>
+-</div>
++<blockquote>
++  <div class="paragraph">
++    [!CAUTION] Advises about risks or negative outcomes of certain actions.
++  </div>
++</blockquote>
+diff --git expected/alert-important.html simple-markdown/alert-important.html
+--- expected/alert-important.html
++++ simple-markdown/alert-important.html
+@@ -1,11 +1,5 @@
+-<div class="markdown-alert markdown-alert-important">
+-  <p class="markdown-alert-title">
+-    <svg aria-hidden="true" class="octicon octicon-report mr-2" data-component="Octicon" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+-      <path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z" />
+-    </svg>
+-    Important
+-  </p>
+-  <p>
+-    Key information users need to know to achieve their goal.
+-  </p>
+-</div>
++<blockquote>
++  <div class="paragraph">
++    [!IMPORTANT] Key information users need to know to achieve their goal.
++  </div>
++</blockquote>
+diff --git expected/alert-note.html simple-markdown/alert-note.html
+--- expected/alert-note.html
++++ simple-markdown/alert-note.html
+@@ -1,11 +1,5 @@
+-<div class="markdown-alert markdown-alert-note">
+-  <p class="markdown-alert-title">
+-    <svg aria-hidden="true" class="octicon octicon-info mr-2" data-component="Octicon" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+-      <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z" />
+-    </svg>
+-    Note
+-  </p>
+-  <p>
+-    Useful information that users should know, even when skimming content.
+-  </p>
+-</div>
++<blockquote>
++  <div class="paragraph">
++    [!NOTE] Useful information that users should know, even when skimming content.
++  </div>
++</blockquote>
+diff --git expected/alert-tip.html simple-markdown/alert-tip.html
+--- expected/alert-tip.html
++++ simple-markdown/alert-tip.html
+@@ -1,11 +1,5 @@
+-<div class="markdown-alert markdown-alert-tip">
+-  <p class="markdown-alert-title">
+-    <svg aria-hidden="true" class="octicon octicon-light-bulb mr-2" data-component="Octicon" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+-      <path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z" />
+-    </svg>
+-    Tip
+-  </p>
+-  <p>
+-    Helpful advice for doing things better or more easily.
+-  </p>
+-</div>
++<blockquote>
++  <div class="paragraph">
++    [!TIP] Helpful advice for doing things better or more easily.
++  </div>
++</blockquote>
+diff --git expected/alert-warning.html simple-markdown/alert-warning.html
+--- expected/alert-warning.html
++++ simple-markdown/alert-warning.html
+@@ -1,11 +1,5 @@
+-<div class="markdown-alert markdown-alert-warning">
+-  <p class="markdown-alert-title">
+-    <svg aria-hidden="true" class="octicon octicon-alert mr-2" data-component="Octicon" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+-      <path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z" />
+-    </svg>
+-    Warning
+-  </p>
+-  <p>
+-    Urgent info that needs immediate user attention to avoid problems.
+-  </p>
+-</div>
++<blockquote>
++  <div class="paragraph">
++    [!WARNING] Urgent info that needs immediate user attention to avoid problems.
++  </div>
++</blockquote>
+diff --git expected/emoji-shortcode.html simple-markdown/emoji-shortcode.html
+--- expected/emoji-shortcode.html
++++ simple-markdown/emoji-shortcode.html
+@@ -1,3 +1,3 @@
+-<p>
+-  Shipped it 🚀 and celebrated 🎉 with 👍.
+-</p>
++<div class="paragraph">
++  Shipped it :rocket: and celebrated :tada: with :+1:.
++</div>
+diff --git expected/footnote-multiple.html simple-markdown/footnote-multiple.html
+--- expected/footnote-multiple.html
++++ simple-markdown/footnote-multiple.html
+@@ -1,42 +1,10 @@
+-<p>
+-  First reference
+-  <sup>
+-    <a aria-described-by="footnote-label" data-footnote-ref="" href="#user-content-fn-a-d0d1227d44c67ad96156fc590d87461c" id="user-content-fnref-a-d0d1227d44c67ad96156fc590d87461c">
+-      1
+-    </a>
+-  </sup>
+-  and second reference
+-  <sup>
+-    <a aria-described-by="footnote-label" data-footnote-ref="" href="#user-content-fn-b-d0d1227d44c67ad96156fc590d87461c" id="user-content-fnref-b-d0d1227d44c67ad96156fc590d87461c">
+-      2
+-    </a>
+-  </sup>
+-  in one paragraph.
+-</p>
+-<section class="footnotes" data-footnotes="">
+-  <h2 class="sr-only" id="footnote-label">
+-    Footnotes
+-  </h2>
+-  <ol>
+-    <li id="user-content-fn-a-d0d1227d44c67ad96156fc590d87461c">
+-      <p>
+-        First footnote.
+-        <a aria-label="Back to reference 1" class="data-footnote-backref" data-footnote-backref="" href="#user-content-fnref-a-d0d1227d44c67ad96156fc590d87461c">
+-          ↩
+-        </a>
+-      </p>
+-    </li>
+-    <li id="user-content-fn-b-d0d1227d44c67ad96156fc590d87461c">
+-      <p>
+-        Second footnote with
+-        <strong>
+-          bold
+-        </strong>
+-        .
+-        <a aria-label="Back to reference 2" class="data-footnote-backref" data-footnote-backref="" href="#user-content-fnref-b-d0d1227d44c67ad96156fc590d87461c">
+-          ↩
+-        </a>
+-      </p>
+-    </li>
+-  </ol>
+-</section>
++<div class="paragraph">
++  First reference[^a] and second reference[^b] in one paragraph.
++</div>
++<div class="paragraph">
++  [^a]: First footnote. [^b]: Second footnote with
++  <strong>
++    bold
++  </strong>
++  .
++</div>
+diff --git expected/footnote.html simple-markdown/footnote.html
+--- expected/footnote.html
++++ simple-markdown/footnote.html
+@@ -1,23 +1,6 @@
+-<p>
+-  Here is a statement with a footnote.
+-  <sup>
+-    <a aria-described-by="footnote-label" data-footnote-ref="" href="#user-content-fn-1-302ae82b9ca33678f9a03c94ef0fb605" id="user-content-fnref-1-302ae82b9ca33678f9a03c94ef0fb605">
+-      1
+-    </a>
+-  </sup>
+-</p>
+-<section class="footnotes" data-footnotes="">
+-  <h2 class="sr-only" id="footnote-label">
+-    Footnotes
+-  </h2>
+-  <ol>
+-    <li id="user-content-fn-1-302ae82b9ca33678f9a03c94ef0fb605">
+-      <p>
+-        This is the footnote definition.
+-        <a aria-label="Back to reference 1" class="data-footnote-backref" data-footnote-backref="" href="#user-content-fnref-1-302ae82b9ca33678f9a03c94ef0fb605">
+-          ↩
+-        </a>
+-      </p>
+-    </li>
+-  </ol>
+-</section>
++<div class="paragraph">
++  Here is a statement with a footnote.[^1]
++</div>
++<div class="paragraph">
++  [^1]: This is the footnote definition.
++</div>
+diff --git expected/heading-with-anchor.html simple-markdown/heading-with-anchor.html
+--- expected/heading-with-anchor.html
++++ simple-markdown/heading-with-anchor.html
+@@ -1,6 +1,6 @@
+ <h2>
+   A Heading That Gets An Anchor
+ </h2>
+-<p>
++<div class="paragraph">
+   Some text under the heading.
+-</p>
++</div>
+diff --git expected/issue-reference.html simple-markdown/issue-reference.html
+--- expected/issue-reference.html
++++ simple-markdown/issue-reference.html
+@@ -1,3 +1,3 @@
+-<p>
++<div class="paragraph">
+   Fixes #1 and relates to #42 in this repo.
+-</p>
++</div>
+diff --git expected/math-block.html simple-markdown/math-block.html
+--- expected/math-block.html
++++ simple-markdown/math-block.html
+@@ -1,5 +1,3 @@
+-<p>
+-  <math-renderer class="js-display-math" data-run-id="6e28c46ad94a671a4538fd18f3e83e65" style="display: block">
+-    $$ \frac{1}{n} \sum_{i=1}^{n} x_i $$
+-  </math-renderer>
+-</p>
++<div class="paragraph">
++  $$ \frac{1}{n} \sum_{i=1}^{n} x_i $$
++</div>
+diff --git expected/math-inline.html simple-markdown/math-inline.html
+--- expected/math-inline.html
++++ simple-markdown/math-inline.html
+@@ -1,7 +1,3 @@
+-<p>
+-  The equation
+-  <math-renderer class="js-inline-math" data-run-id="0bae22a43582545172de61655bf8a8d3" style="display: inline-block">
+-    $a^2 + b^2 = c^2$
+-  </math-renderer>
+-  is the Pythagorean theorem.
+-</p>
++<div class="paragraph">
++  The equation $a^2 + b^2 = c^2$ is the Pythagorean theorem.
++</div>
+diff --git expected/mention.html simple-markdown/mention.html
+--- expected/mention.html
++++ simple-markdown/mention.html
+@@ -1,11 +1,3 @@
+-<p>
+-  Thanks
+-  <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/octocat/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/octocat">
+-    @octocat
+-  </a>
+-  and
+-  <a class="user-mention notranslate" data-hovercard-type="organization" data-hovercard-url="/orgs/github/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/github">
+-    @github
+-  </a>
+-  for the help.
+-</p>
++<div class="paragraph">
++  Thanks @octocat and @github for the help.
++</div>
+diff --git expected/blockquote-with-html-md.html simple-markdown/blockquote-with-html-md.html
+--- expected/blockquote-with-html-md.html
++++ simple-markdown/blockquote-with-html-md.html
+@@ -1,5 +1,9 @@
+ <blockquote>
+-  <div>
+-    *not emphasized inside quoted div*
++  <div class="paragraph">
++    <div>
++    <em>
++      not emphasized inside quoted div
++    </em>
++    </div>
+   </div>
+ </blockquote>
+diff --git expected/div-markdown-attr.html simple-markdown/div-markdown-attr.html
+--- expected/div-markdown-attr.html
++++ simple-markdown/div-markdown-attr.html
+@@ -1,3 +1,7 @@
+-<div>
+-  *does markdown="1" change anything?*
++<div class="paragraph">
++  <div markdown="1">
++  <em>
++    does markdown="1" change anything?
++  </em>
++  </div>
+ </div>
+diff --git expected/emphasis-across-inline-tag.html simple-markdown/emphasis-across-inline-tag.html
+--- expected/emphasis-across-inline-tag.html
++++ simple-markdown/emphasis-across-inline-tag.html
+@@ -1,9 +1,5 @@
+-<p>
++<div class="paragraph">
+   <em>
+-    open
+-    <span>
+-      span
+-    </span>
+-    still emphasized
++    open <span>span</span> still emphasized
+   </em>
+-</p>
++</div>
+diff --git expected/heading-in-div-loose.html simple-markdown/heading-in-div-loose.html
+--- expected/heading-in-div-loose.html
++++ simple-markdown/heading-in-div-loose.html
+@@ -1,5 +1,9 @@
+-<div>
+-  <h1>
+-    a heading
+-  </h1>
++<div class="paragraph">
++  <div>
+ </div>
++<h1>
++  a heading
++</h1>
++<div class="paragraph">
++  </div>
++</div>
+diff --git expected/heading-in-div-tight.html simple-markdown/heading-in-div-tight.html
+--- expected/heading-in-div-tight.html
++++ simple-markdown/heading-in-div-tight.html
+@@ -1,3 +1,3 @@
+-<div>
+-  # not a heading
++<div class="paragraph">
++  <div> # not a heading </div>
+ </div>
+diff --git expected/list-in-div-loose.html simple-markdown/list-in-div-loose.html
+--- expected/list-in-div-loose.html
++++ simple-markdown/list-in-div-loose.html
+@@ -1,10 +1,14 @@
+-<div>
+-  <ul>
+-    <li>
+-      a list item
+-    </li>
+-    <li>
+-      another list item
+-    </li>
+-  </ul>
++<div class="paragraph">
++  <div>
+ </div>
++<ul>
++  <li>
++    a list item
++  </li>
++  <li>
++    another list item
++  </li>
++</ul>
++<div class="paragraph">
++  </div>
++</div>
+diff --git expected/list-in-div-tight.html simple-markdown/list-in-div-tight.html
+--- expected/list-in-div-tight.html
++++ simple-markdown/list-in-div-tight.html
+@@ -1,3 +1,3 @@
+-<div>
+-  - not a list item - still not a list
++<div class="paragraph">
++  <div> - not a list item - still not a list </div>
+ </div>
+diff --git expected/md-after-close-tag-loose.html simple-markdown/md-after-close-tag-loose.html
+--- expected/md-after-close-tag-loose.html
++++ simple-markdown/md-after-close-tag-loose.html
+@@ -1,8 +1,8 @@
+-<div>
+-  content
++<div class="paragraph">
++  <div> content </div>
+ </div>
+-<p>
++<div class="paragraph">
+   <em>
+     emphasized — the blank line ended the block
+   </em>
+-</p>
++</div>
+diff --git expected/md-after-close-tag-tight.html simple-markdown/md-after-close-tag-tight.html
+--- expected/md-after-close-tag-tight.html
++++ simple-markdown/md-after-close-tag-tight.html
+@@ -1,4 +1,6 @@
+-<div>
+-  content
++<div class="paragraph">
++  <div> content </div>
++  <em>
++    not emphasized — still in the HTML block
++  </em>
+ </div>
+-*not emphasized — still in the HTML block*
+diff --git expected/md-in-div-loose.html simple-markdown/md-in-div-loose.html
+--- expected/md-in-div-loose.html
++++ simple-markdown/md-in-div-loose.html
+@@ -1,11 +1,15 @@
+-<div>
+-  <p>
+-    <em>
+-      emphasized
+-    </em>
+-    and
+-    <strong>
+-      bold
+-    </strong>
+-  </p>
++<div class="paragraph">
++  <div>
+ </div>
++<div class="paragraph">
++  <em>
++    emphasized
++  </em>
++  and
++  <strong>
++    bold
++  </strong>
++</div>
++<div class="paragraph">
++  </div>
++</div>
+diff --git expected/md-in-div-tight.html simple-markdown/md-in-div-tight.html
+--- expected/md-in-div-tight.html
++++ simple-markdown/md-in-div-tight.html
+@@ -1,3 +1,11 @@
+-<div>
+-  *not emphasized* and **not bold**
++<div class="paragraph">
++  <div>
++  <em>
++    not emphasized
++  </em>
++  and
++  <strong>
++    not bold
++  </strong>
++  </div>
+ </div>
+diff --git expected/md-in-inline-code-tag.html simple-markdown/md-in-inline-code-tag.html
+--- expected/md-in-inline-code-tag.html
++++ simple-markdown/md-in-inline-code-tag.html
+@@ -1,9 +1,7 @@
+-<p>
+-  Inline
+-  <code class="notranslate">
+-    <em>
+-      emphasized inside a code tag
+-    </em>
+-  </code>
+-  here.
+-</p>
++<div class="paragraph">
++  Inline <code>
++  <em>
++    emphasized inside a code tag
++  </em>
++  </code> here.
++</div>
+diff --git expected/md-in-inline-span.html simple-markdown/md-in-inline-span.html
+--- expected/md-in-inline-span.html
++++ simple-markdown/md-in-inline-span.html
+@@ -1,13 +1,11 @@
+-<p>
+-  Inline
+-  <span>
+-    <em>
+-      emphasized
+-    </em>
+-    and
+-    <strong>
+-      bold
+-    </strong>
+-  </span>
+-  stay markdown.
+-</p>
++<div class="paragraph">
++  Inline <span>
++  <em>
++    emphasized
++  </em>
++  and
++  <strong>
++    bold
++  </strong>
++  </span> stay markdown.
++</div>
+diff --git expected/md-in-pre.html simple-markdown/md-in-pre.html
+--- expected/md-in-pre.html
++++ simple-markdown/md-in-pre.html
+@@ -1,3 +1,7 @@
+-<pre class="notranslate">
+-  *not emphasized* and # not a heading
+-</pre>
++<div class="paragraph">
++  <pre>
++  <em>
++    not emphasized
++  </em>
++  and # not a heading </pre>
++</div>
+diff --git expected/md-in-table-html.html simple-markdown/md-in-table-html.html
+--- expected/md-in-table-html.html
++++ simple-markdown/md-in-table-html.html
+@@ -1,11 +1,7 @@
+-<markdown-accessiblity-table>
+-  <table role="table">
+-    <tbody>
+-      <tr>
+-        <td>
+-          *not emphasized* in a raw table
+-        </td>
+-      </tr>
+-    </tbody>
+-  </table>
+-</markdown-accessiblity-table>
++<div class="paragraph">
++  <table> <tr><td>
++  <em>
++    not emphasized
++  </em>
++  in a raw table</td></tr> </table>
++</div>

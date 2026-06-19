@@ -1,0 +1,3 @@
+> <div>
+> *not emphasized inside quoted div*
+> </div>

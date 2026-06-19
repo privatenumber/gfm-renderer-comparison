@@ -1,0 +1,1 @@
+Text with <strong>inline html</strong> and a <br> break.

@@ -1,0 +1,104 @@
+{
+	"npm:cmark-gfm": {
+		"releaseDate": "2021-04-21",
+		"repo": "https://github.com/BinaryMuse/node-cmark-gfm",
+		"lastCommitDate": "2022-06-27",
+		"lastCommitUrl": "https://github.com/BinaryMuse/node-cmark-gfm/commit/6e2300fb7b7a2e2d47251381e1078440d435859d"
+	},
+	"npm:commonmark": {
+		"releaseDate": "2024-09-19",
+		"repo": "https://github.com/commonmark/commonmark.js",
+		"lastCommitDate": "2026-03-01",
+		"lastCommitUrl": "https://github.com/commonmark/commonmark.js/commit/497bdcc8f8bf8400e99d7741f049233820048c8a"
+	},
+	"crates:comrak": {
+		"releaseDate": "2026-04-04",
+		"repo": "https://github.com/kivikakk/comrak",
+		"lastCommitDate": "2026-05-19",
+		"lastCommitUrl": "https://github.com/kivikakk/comrak/commit/d2da7a055008a8ccde18cc1c88a06a04de69fa99"
+	},
+	"npm:hoedown": {
+		"releaseDate": "2015-06-25",
+		"repo": "https://github.com/hoedown/node-hoedown",
+		"lastCommitDate": "2015-06-25",
+		"lastCommitUrl": "https://github.com/hoedown/node-hoedown/commit/77bb83f7720cd55e340538dd5a566de98d47eadd"
+	},
+	"npm:markdown-it": {
+		"releaseDate": "2026-05-23",
+		"repo": "https://github.com/markdown-it/markdown-it",
+		"lastCommitDate": "2026-05-26",
+		"lastCommitUrl": "https://github.com/markdown-it/markdown-it/commit/83450e2bc3836ad9f68f652e5685031e9dce4897"
+	},
+	"crates:markdown": {
+		"releaseDate": "2025-04-23",
+		"repo": "https://github.com/wooorm/markdown-rs",
+		"lastCommitDate": "2025-04-23",
+		"lastCommitUrl": "https://github.com/wooorm/markdown-rs/commit/1506572f9b406431402928f3a8b3df0b4ae2d8f5"
+	},
+	"npm:markdown": {
+		"releaseDate": "2013-07-26",
+		"repo": "https://github.com/evilstreak/markdown-js",
+		"lastCommitDate": "2019-03-05",
+		"lastCommitUrl": "https://github.com/evilstreak/markdown-js/commit/14344a8f0eb1ca5d6ff99eb3fa54c1fd821bf484"
+	},
+	"npm:marked": {
+		"releaseDate": "2026-05-19",
+		"repo": "https://github.com/markedjs/marked",
+		"lastCommitDate": "2026-06-01",
+		"lastCommitUrl": "https://github.com/markedjs/marked/commit/c1a86f00ccd81144422f1a4194756bd48111c531"
+	},
+	"npm:md4w": {
+		"releaseDate": "2025-05-28",
+		"repo": "https://github.com/ije/md4w",
+		"lastCommitDate": "2025-05-28",
+		"lastCommitUrl": "https://github.com/ije/md4w/commit/1ae005b08cfe9286ba22752b52ea244d91101f3a"
+	},
+	"npm:micro-down": {
+		"releaseDate": "2021-05-25",
+		"repo": "https://github.com/commit-intl/micro-down",
+		"lastCommitDate": "2021-05-25",
+		"lastCommitUrl": "https://github.com/commit-intl/micro-down/commit/5fef893b27a4ca902a34741827676bcdcb1775be"
+	},
+	"npm:micromark": {
+		"releaseDate": "2025-02-27",
+		"repo": "https://github.com/micromark/micromark",
+		"lastCommitDate": "2025-05-10",
+		"lastCommitUrl": "https://github.com/micromark/micromark/commit/774a70c6bae6dd94486d3385dbd9a0f14550b709"
+	},
+	"npm:nano-markdown": {
+		"releaseDate": "2023-03-07",
+		"repo": "https://github.com/Holixus/nano-markdown",
+		"lastCommitDate": "2023-03-07",
+		"lastCommitUrl": "https://github.com/Holixus/nano-markdown/commit/29995759dbc164f1757fbdeadd718ab137ac2a72"
+	},
+	"crates:pulldown-cmark": {
+		"releaseDate": "2026-05-20",
+		"repo": "https://github.com/raphlinus/pulldown-cmark",
+		"lastCommitDate": "2026-06-01",
+		"lastCommitUrl": "https://github.com/pulldown-cmark/pulldown-cmark/commit/7d05556009be40944313fcf0f8aa7882ec7ab5f8"
+	},
+	"npm:remark-gfm": {
+		"releaseDate": "2025-02-10",
+		"repo": "https://github.com/remarkjs/remark-gfm",
+		"lastCommitDate": "2025-02-10",
+		"lastCommitUrl": "https://github.com/remarkjs/remark-gfm/commit/109972e8a773bf5dac1d6d2da0776557f36971aa"
+	},
+	"npm:showdown": {
+		"releaseDate": "2022-04-21",
+		"repo": "https://github.com/showdownjs/showdown",
+		"lastCommitDate": "2026-01-02",
+		"lastCommitUrl": "https://github.com/showdownjs/showdown/commit/2a8a64eb3dd137dc456fd016322a78cde66136d7"
+	},
+	"npm:@khanacademy/simple-markdown": {
+		"releaseDate": "2026-05-07",
+		"repo": "https://github.com/Khan/perseus/tree/HEAD/packages/simple-markdown",
+		"lastCommitDate": "2026-05-07",
+		"lastCommitUrl": "https://github.com/Khan/perseus/commit/2a9ddcad17afb38a274720def487f338ccdc8dec"
+	},
+	"npm:snarkdown": {
+		"releaseDate": "2020-08-31",
+		"repo": "https://github.com/developit/snarkdown",
+		"lastCommitDate": "2022-01-10",
+		"lastCommitUrl": "https://github.com/developit/snarkdown/commit/7619436b10a3e31e6779bf1209da4762409b86be"
+	}
+}

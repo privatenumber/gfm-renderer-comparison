@@ -1,0 +1,8 @@
+node_modules
+.DS_Store
+
+# Compiled native addons (e.g. hoedown's binding.node, built by pnpm build:hoedown)
+*.node
+
+# Rust build output for crate-bound addons (pnpm build:pulldown, build:comrak)
+lib/renderers/adapters/*/target

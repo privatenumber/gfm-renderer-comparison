@@ -1,0 +1,7 @@
+# N-API symbols (napi_*) are provided by the Node host at load time, so allow
+# them to be undefined when linking the cdylib addons on macOS (Linux resolves
+# undefined symbols lazily by default). Shared by every adapter crate under
+# lib/renderers/adapters/ — cargo finds this by walking up from the crate dir,
+# replacing what was an identical build.rs in each crate.
+[target.'cfg(target_os = "macos")']
+rustflags = ["-C", "link-arg=-undefined", "-C", "link-arg=dynamic_lookup"]

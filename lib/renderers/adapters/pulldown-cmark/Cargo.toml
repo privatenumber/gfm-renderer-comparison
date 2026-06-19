@@ -1,0 +1,19 @@
+[package]
+name = "pulldown-cmark-node"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+# Build a C-compatible dynamic library; build.ts copies it to `binding.node`,
+# which Node loads as an N-API addon.
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+napi = "2"
+napi-derive = "2"
+# The official engine, bound directly so GFM options can be enabled.
+pulldown-cmark = "0.13"
+
+[profile.release]
+lto = true

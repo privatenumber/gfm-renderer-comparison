@@ -1,0 +1,2080 @@
+diff --git expected/comment-after-heading.html snarkdown/comment-after-heading.html
+--- expected/comment-after-heading.html
++++ snarkdown/comment-after-heading.html
+@@ -1,3 +1,4 @@
+ <h1>
+   Heading text
++  <!--trailing comment-->
+ </h1>
+diff --git expected/comment-backticks-in-table.html snarkdown/comment-backticks-in-table.html
+--- expected/comment-backticks-in-table.html
++++ snarkdown/comment-backticks-in-table.html
+@@ -1,26 +1,5 @@
+-<markdown-accessiblity-table>
+-  <table role="table">
+-    <thead>
+-      <tr>
+-        <th>
+-          Code
+-        </th>
+-        <th>
+-          Note
+-        </th>
+-      </tr>
+-    </thead>
+-    <tbody>
+-      <tr>
+-        <td>
+-          <code class="notranslate">
+-            <!-- c -->
+-          </code>
+-        </td>
+-        <td>
+-          literal
+-        </td>
+-      </tr>
+-    </tbody>
+-  </table>
+-</markdown-accessiblity-table>
++| Code | Note | | ---- | ---- | |
++<code>
++  <!-- c -->
++</code>
++| literal |
+diff --git expected/comment-block.html snarkdown/comment-block.html
+--- expected/comment-block.html
++++ snarkdown/comment-block.html
+@@ -1,6 +1,5 @@
+-<p>
+-  Before the comment.
+-</p>
+-<p>
+-  After the comment.
+-</p>
++Before the comment.
++<br />
++<!--a standalone block comment-->
++<br />
++After the comment.
+diff --git expected/comment-in-code-span.html snarkdown/comment-in-code-span.html
+--- expected/comment-in-code-span.html
++++ snarkdown/comment-in-code-span.html
+@@ -1,7 +1,5 @@
+-<p>
+-  Inline code
+-  <code class="notranslate">
+-    <!-- not a real comment -->
+-  </code>
+-  must stay literal.
+-</p>
++Inline code
++<code>
++  <!-- not a real comment -->
++</code>
++must stay literal.
+diff --git expected/comment-in-fenced-code.html snarkdown/comment-in-fenced-code.html
+--- expected/comment-in-fenced-code.html
++++ snarkdown/comment-in-fenced-code.html
+@@ -1,26 +1,5 @@
+-<div class="highlight highlight-text-html-basic">
+-  <pre class="notranslate">
+-    <span class="pl-c">
+-      <!-- comment inside a fenced code block -->
+-    </span>
+-    <span class="pl-kos">
+-      <
+-    </span>
+-    <span class="pl-ent">
+-      div
+-    </span>
+-    <span class="pl-kos">
+-      >
+-    </span>
+-    x
+-    <span class="pl-kos">
+-      </
+-    </span>
+-    <span class="pl-ent">
+-      div
+-    </span>
+-    <span class="pl-kos">
+-      >
+-    </span>
+-  </pre>
+-</div>
++<pre class="code html">
++  <code class="language-html">
++    <!-- comment inside a fenced code block --> <div>x</div>
++  </code>
++</pre>
+diff --git expected/comment-in-indented-code.html snarkdown/comment-in-indented-code.html
+--- expected/comment-in-indented-code.html
++++ snarkdown/comment-in-indented-code.html
+@@ -1,5 +1,6 @@
+-<pre class="notranslate">
+-  <code class="notranslate">
++<!--comment inside an indented code block-->
++<pre class="code poetry">
++  <code>
+     still code
+   </code>
+ </pre>
+diff --git expected/comment-in-list.html snarkdown/comment-in-list.html
+--- expected/comment-in-list.html
++++ snarkdown/comment-in-list.html
+@@ -3,6 +3,7 @@
+     First item
+   </li>
+ </ul>
++<!--comment between items-->
+ <ul>
+   <li>
+     Second item
+diff --git expected/comment-in-table-cell.html snarkdown/comment-in-table-cell.html
+--- expected/comment-in-table-cell.html
++++ snarkdown/comment-in-table-cell.html
+@@ -1,22 +1,3 @@
+-<markdown-accessiblity-table>
+-  <table role="table">
+-    <thead>
+-      <tr>
+-        <th>
+-          Col A
+-        </th>
+-        <th>
+-          Col B
+-        </th>
+-      </tr>
+-    </thead>
+-    <tbody>
+-      <tr>
+-        <td />
+-        <td>
+-          visible
+-        </td>
+-      </tr>
+-    </tbody>
+-  </table>
+-</markdown-accessiblity-table>
++| Col A | Col B | | ----- | ----- | |
++<!--raw comment-->
++| visible |
+diff --git expected/comment-inline.html snarkdown/comment-inline.html
+--- expected/comment-inline.html
++++ snarkdown/comment-inline.html
+@@ -1,3 +1,3 @@
+-<p>
+-  Text before and text after.
+-</p>
++Text before
++<!--inline comment-->
++and text after.
+diff --git expected/comment-multiline.html snarkdown/comment-multiline.html
+--- expected/comment-multiline.html
++++ snarkdown/comment-multiline.html
+@@ -1 +1,2 @@
+-
++<!--multi-line
++comment body-->
+diff --git expected/comment-only.html snarkdown/comment-only.html
+--- expected/comment-only.html
++++ snarkdown/comment-only.html
+@@ -1 +1 @@
+-
++<!--the entire document is only this comment-->
+diff --git expected/comment-pipe-in-table.html snarkdown/comment-pipe-in-table.html
+--- expected/comment-pipe-in-table.html
++++ snarkdown/comment-pipe-in-table.html
+@@ -1,24 +1,3 @@
+-<markdown-accessiblity-table>
+-  <table role="table">
+-    <thead>
+-      <tr>
+-        <th>
+-          A
+-        </th>
+-        <th>
+-          B
+-        </th>
+-      </tr>
+-    </thead>
+-    <tbody>
+-      <tr>
+-        <td>
+-          <!-- a
+-        </td>
+-        <td>
+-          b -->
+-        </td>
+-      </tr>
+-    </tbody>
+-  </table>
+-</markdown-accessiblity-table>
++| A | B | | - | - | |
++<!--a | b-->
++| c |
+diff --git expected/comment-unclosed.html snarkdown/comment-unclosed.html
+--- expected/comment-unclosed.html
++++ snarkdown/comment-unclosed.html
+@@ -1,3 +1,2 @@
+-<p>
+-  Text then <!-- an unclosed comment that never ends
+-</p>
++Text then
++<!--an unclosed comment that never ends-->
+diff --git expected/comment-with-markdown.html snarkdown/comment-with-markdown.html
+--- expected/comment-with-markdown.html
++++ snarkdown/comment-with-markdown.html
+@@ -1 +1 @@
+-
++<!--<strong>bold</strong> <em>italic</em> and <a href="https://example.com">a link</a> inside a comment-->
+diff --git expected/comment-with-raw-html.html snarkdown/comment-with-raw-html.html
+--- expected/comment-with-raw-html.html
++++ snarkdown/comment-with-raw-html.html
+@@ -1 +1 @@
+-
++<!--<div class="x">raw tags</div> and <script>alert(1)</script> inside-->
+diff --git expected/backslash-escapes.html snarkdown/backslash-escapes.html
+--- expected/backslash-escapes.html
++++ snarkdown/backslash-escapes.html
+@@ -1,3 +1,4 @@
+-<p>
+-  *not emphasis* and `not code` and # not heading and [not link]
+-</p>
++\
++<em>
++  not emphasis\* and \`not code\` and \# not heading and \[not link\]
++</em>
+diff --git expected/blockquote.html snarkdown/blockquote.html
+--- expected/blockquote.html
++++ snarkdown/blockquote.html
+@@ -1,7 +1,3 @@
+ <blockquote>
+-  <p>
+-    A blockquote
+-    <br />
+-    spanning two lines.
+-  </p>
++  A blockquote spanning two lines.
+ </blockquote>
+diff --git expected/code-span.html snarkdown/code-span.html
+--- expected/code-span.html
++++ snarkdown/code-span.html
+@@ -1,11 +1,9 @@
+-<p>
+-  Use the
+-  <code class="notranslate">
+-    printf()
+-  </code>
+-  function and
+-  <code class="notranslate">
+-    a ` b
+-  </code>
+-  for literal backticks.
+-</p>
++Use the
++<code>
++  printf()
++</code>
++function and `
++<code>
++  a
++</code>
++b `` for literal backticks.
+diff --git expected/emphasis.html snarkdown/emphasis.html
+--- expected/emphasis.html
++++ snarkdown/emphasis.html
+@@ -1,23 +1,24 @@
+-<p>
++<em>
++  italic
++</em>
++and
++<em>
++  italic
++</em>
++and
++<strong>
++  bold
++</strong>
++and
++<strong>
++  bold
++</strong>
++and
++<strong>
+   <em>
+-    italic
+-  </em>
+-  and
+-  <em>
+-    italic
+-  </em>
+-  and
+-  <strong>
+-    bold
+-  </strong>
+-  and
+-  <strong>
+-    bold
+-  </strong>
+-  and
+-  <em>
++    bold italic
+     <strong>
+-      bold italic
++      <em />
+     </strong>
+   </em>
+-</p>
++</strong>
+diff --git expected/fenced-code-lang.html snarkdown/fenced-code-lang.html
+--- expected/fenced-code-lang.html
++++ snarkdown/fenced-code-lang.html
+@@ -1,40 +1,5 @@
+-<div class="highlight highlight-source-js">
+-  <pre class="notranslate">
+-    <span class="pl-k">
+-      const
+-    </span>
+-    <span class="pl-s1">
+-      x
+-    </span>
+-    <span class="pl-c1">
+-      =
+-    </span>
+-    <span class="pl-c1">
+-      1
+-    </span>
+-    <span class="pl-kos">
+-      ;
+-    </span>
+-    <span class="pl-smi">
+-      console
+-    </span>
+-    <span class="pl-kos">
+-      .
+-    </span>
+-    <span class="pl-en">
+-      log
+-    </span>
+-    <span class="pl-kos">
+-      (
+-    </span>
+-    <span class="pl-s1">
+-      x
+-    </span>
+-    <span class="pl-kos">
+-      )
+-    </span>
+-    <span class="pl-kos">
+-      ;
+-    </span>
+-  </pre>
+-</div>
++<pre class="code js">
++  <code class="language-js">
++    const x = 1; console.log(x);
++  </code>
++</pre>
+diff --git expected/fenced-code.html snarkdown/fenced-code.html
+--- expected/fenced-code.html
++++ snarkdown/fenced-code.html
+@@ -1,5 +1,5 @@
+-<pre class="notranslate">
+-  <code class="notranslate">
++<pre class="code">
++  <code>
+     plain fenced code no language
+   </code>
+ </pre>
+diff --git expected/hard-break-backslash.html snarkdown/hard-break-backslash.html
+--- expected/hard-break-backslash.html
++++ snarkdown/hard-break-backslash.html
+@@ -1,5 +1 @@
+-<p>
+-  Line one with a backslash
+-  <br />
+-  Line two after a hard break.
+-</p>
++Line one with a backslash\ Line two after a hard break.
+diff --git expected/hard-break-spaces.html snarkdown/hard-break-spaces.html
+--- expected/hard-break-spaces.html
++++ snarkdown/hard-break-spaces.html
+@@ -1,5 +1,3 @@
+-<p>
+-  Line one with trailing spaces
+-  <br />
+-  Line two after a hard break.
+-</p>
++Line one with trailing spaces
++<br />
++Line two after a hard break.
+diff --git expected/html-block.html snarkdown/html-block.html
+--- expected/html-block.html
++++ snarkdown/html-block.html
+@@ -1,4 +1,4 @@
+-<div>
++<div class="note">
+   <p>
+     A raw HTML block.
+   </p>
+diff --git expected/image.html snarkdown/image.html
+--- expected/image.html
++++ snarkdown/image.html
+@@ -1,5 +1 @@
+-<p>
+-  <a href="https://camo.githubusercontent.com/27bcedb12cbae144ef3b1cb45d969d3058276761f6169891e0cdb7a49d1ef7fd/68747470733a2f2f6578616d706c652e636f6d2f696d6167652e706e67" rel="noopener noreferrer nofollow" target="_blank">
+-    <img alt="alt text" data-canonical-src="https://example.com/image.png" src="https://camo.githubusercontent.com/27bcedb12cbae144ef3b1cb45d969d3058276761f6169891e0cdb7a49d1ef7fd/68747470733a2f2f6578616d706c652e636f6d2f696d6167652e706e67" style="max-width: 100%;" title="Image Title" />
+-  </a>
+-</p>
++<img alt="alt text" src="https://example.com/image.png "Image Title"" />
+diff --git expected/indented-code.html snarkdown/indented-code.html
+--- expected/indented-code.html
++++ snarkdown/indented-code.html
+@@ -1,5 +1,6 @@
+-<p>
+-  indented code block
+-  <br />
+-  second line
+-</p>
++indented code block
++<pre class="code poetry">
++  <code>
++    second line
++  </code>
++</pre>
+diff --git expected/inline-html.html snarkdown/inline-html.html
+--- expected/inline-html.html
++++ snarkdown/inline-html.html
+@@ -1,9 +1,7 @@
+-<p>
+-  Text with
+-  <strong>
+-    inline html
+-  </strong>
+-  and a
+-  <br />
+-  break.
+-</p>
++Text with
++<strong>
++  inline html
++</strong>
++and a
++<br />
++break.
+diff --git expected/inline-link.html snarkdown/inline-link.html
+--- expected/inline-link.html
++++ snarkdown/inline-link.html
+@@ -1,7 +1,5 @@
+-<p>
+-  An
+-  <a href="https://example.com" rel="nofollow">
+-    inline link
+-  </a>
+-  in text.
+-</p>
++An
++<a href="https://example.com">
++  inline link
++</a>
++in text.
+diff --git expected/intraword-emphasis.html snarkdown/intraword-emphasis.html
+--- expected/intraword-emphasis.html
++++ snarkdown/intraword-emphasis.html
+@@ -1,11 +1,13 @@
+-<p>
+-  foo
+-  <em>
+-    bar
+-  </em>
+-  baz and foo_bar_baz and 5
+-  <em>
+-    6
+-  </em>
+-  7
+-</p>
++foo
++<em>
++  bar
++</em>
++baz and foo
++<em>
++  bar
++</em>
++baz and 5
++<em>
++  6
++</em>
++7
+diff --git expected/link-with-title.html snarkdown/link-with-title.html
+--- expected/link-with-title.html
++++ snarkdown/link-with-title.html
+@@ -1,7 +1,5 @@
+-<p>
+-  A
+-  <a href="https://example.com" rel="nofollow" title="Example Title">
+-    titled link
+-  </a>
+-  here.
+-</p>
++A
++<a href="https://example.com "Example Title"">
++  titled link
++</a>
++here.
+diff --git expected/loose-list.html snarkdown/loose-list.html
+--- expected/loose-list.html
++++ snarkdown/loose-list.html
+@@ -1,12 +1,11 @@
+ <ul>
+   <li>
+-    <p>
+-      Item one
+-    </p>
++    Item one
+   </li>
++</ul>
++<br />
++<ul>
+   <li>
+-    <p>
+-      Item two with a blank line before it
+-    </p>
++    Item two with a blank line before it
+   </li>
+ </ul>
+diff --git expected/named-entity.html snarkdown/named-entity.html
+--- expected/named-entity.html
++++ snarkdown/named-entity.html
+@@ -1,3 +1 @@
+-<p>
+-  Ampersand & copyright © less-than < and a non-entity .
+-</p>
++Ampersand & copyright © less-than < and a non-entity .
+diff --git expected/nested-blockquote.html snarkdown/nested-blockquote.html
+--- expected/nested-blockquote.html
++++ snarkdown/nested-blockquote.html
+@@ -1,12 +1,6 @@
+ <blockquote>
+-  <p>
+-    Outer
+-  </p>
++  Outer
+   <blockquote>
+-    <p>
+-      Inner nested
+-      <br />
+-      quote
+-    </p>
++    Inner nested quote
+   </blockquote>
+ </blockquote>
+diff --git expected/nested-list.html snarkdown/nested-list.html
+--- expected/nested-list.html
++++ snarkdown/nested-list.html
+@@ -1,20 +1,15 @@
+ <ul>
+   <li>
+     Top
+-    <ul>
+-      <li>
+-        Nested one
+-      </li>
+-      <li>
+-        Nested two
+-        <ul>
+-          <li>
+-            Deeper
+-          </li>
+-        </ul>
+-      </li>
+-    </ul>
+   </li>
++</ul>
++- Nested one - Nested two
++<pre class="code poetry">
++  <code>
++    - Deeper
++  </code>
++</pre>
++<ul>
+   <li>
+     Back to top
+   </li>
+diff --git expected/numeric-entity.html snarkdown/numeric-entity.html
+--- expected/numeric-entity.html
++++ snarkdown/numeric-entity.html
+@@ -1,3 +1 @@
+-<p>
+-  Decimal # and hex ☺ entities.
+-</p>
++Decimal # and hex ☺ entities.
+diff --git expected/ordered-list-start.html snarkdown/ordered-list-start.html
+--- expected/ordered-list-start.html
++++ snarkdown/ordered-list-start.html
+@@ -1,4 +1,4 @@
+-<ol start="5">
++<ol>
+   <li>
+     Five
+   </li>
+diff --git expected/paragraphs-softbreak.html snarkdown/paragraphs-softbreak.html
+--- expected/paragraphs-softbreak.html
++++ snarkdown/paragraphs-softbreak.html
+@@ -1,8 +1,3 @@
+-<p>
+-  First line of a paragraph
+-  <br />
+-  second line after a soft break.
+-</p>
+-<p>
+-  A second paragraph.
+-</p>
++First line of a paragraph second line after a soft break.
++<br />
++A second paragraph.
+diff --git expected/pointy-autolink.html snarkdown/pointy-autolink.html
+--- expected/pointy-autolink.html
++++ snarkdown/pointy-autolink.html
+@@ -1,11 +1,7 @@
+-<p>
+-  Pointy autolink
+-  <a href="https://example.com" rel="nofollow">
+-    https://example.com
+-  </a>
++Pointy autolink
++<https: example.com="">
+   and email
+-  <a href="mailto:test@example.com">
+-    test@example.com
+-  </a>
+-  .
+-</p>
++  <test@example class="com">
++    .
++  </test@example>
++</https:>
+diff --git expected/reference-link.html snarkdown/reference-link.html
+--- expected/reference-link.html
++++ snarkdown/reference-link.html
+@@ -1,7 +1,8 @@
+-<p>
+-  A
+-  <a href="https://example.com" rel="nofollow" title="Reference">
+-    reference link
+-  </a>
+-  in text.
+-</p>
++A
++<a href="undefined">
++  reference link
++</a>
++<a href="https://example.com "Reference"">
++  ref
++</a>
++in text.
+diff --git expected/thematic-break.html snarkdown/thematic-break.html
+--- expected/thematic-break.html
++++ snarkdown/thematic-break.html
+@@ -1,7 +1,3 @@
+-<p>
+-  Above
+-</p>
++Above
+ <hr />
+-<p>
+-  Below
+-</p>
++Below
+diff --git expected/ampersand-in-url.html snarkdown/ampersand-in-url.html
+--- expected/ampersand-in-url.html
++++ snarkdown/ampersand-in-url.html
+@@ -1,7 +1,5 @@
+-<p>
+-  A
+-  <a href="https://example.com/search?a=1&b=2&c=3" rel="nofollow">
+-    query link
+-  </a>
+-  with ampersands.
+-</p>
++A
++<a href="https://example.com/search?a=1&b=2&c=3">
++  query link
++</a>
++with ampersands.
+diff --git expected/backtick-in-code.html snarkdown/backtick-in-code.html
+--- expected/backtick-in-code.html
++++ snarkdown/backtick-in-code.html
+@@ -1,11 +1,13 @@
+-<p>
+-  Inline
+-  <code class="notranslate">
+-    code with ` backtick
+-  </code>
++Inline `
++<code>
++  code with
++</code>
++backtick `
++<code>
+   and
+-  <code class="notranslate">
+-    triple ` inside
+-  </code>
+-  .
+-</p>
++</code>
++`
++<code>
++  triple
++</code>
++inside```.
+diff --git expected/blockquote-with-heading.html snarkdown/blockquote-with-heading.html
+--- expected/blockquote-with-heading.html
++++ snarkdown/blockquote-with-heading.html
+@@ -2,7 +2,5 @@
+   <h1>
+     Heading inside a quote
+   </h1>
+-  <p>
+-    And a paragraph.
+-  </p>
++  And a paragraph.
+ </blockquote>
+diff --git expected/code-block-with-html.html snarkdown/code-block-with-html.html
+--- expected/code-block-with-html.html
++++ snarkdown/code-block-with-html.html
+@@ -1,60 +1,5 @@
+-<div class="highlight highlight-text-html-basic">
+-  <pre class="notranslate">
+-    <span class="pl-kos">
+-      <
+-    </span>
+-    <span class="pl-ent">
+-      div
+-    </span>
+-    <span class="pl-c1">
+-      class
+-    </span>
+-    ="
+-    <span class="pl-s">
+-      x
+-    </span>
+-    "
+-    <span class="pl-kos">
+-      >
+-    </span>
+-    <span class="pl-kos">
+-      <
+-    </span>
+-    <span class="pl-ent">
+-      script
+-    </span>
+-    <span class="pl-kos">
+-      >
+-    </span>
+-    <span class="pl-en">
+-      alert
+-    </span>
+-    <span class="pl-kos">
+-      (
+-    </span>
+-    <span class="pl-c1">
+-      1
+-    </span>
+-    <span class="pl-kos">
+-      )
+-    </span>
+-    <span class="pl-kos">
+-      </
+-    </span>
+-    <span class="pl-ent">
+-      script
+-    </span>
+-    <span class="pl-kos">
+-      >
+-    </span>
+-    <span class="pl-kos">
+-      </
+-    </span>
+-    <span class="pl-ent">
+-      div
+-    </span>
+-    <span class="pl-kos">
+-      >
+-    </span>
+-  </pre>
+-</div>
++<pre class="code html">
++  <code class="language-html">
++    <div class="x"> <script>alert(1)</script> </div>
++  </code>
++</pre>
+diff --git expected/consecutive-emphasis.html snarkdown/consecutive-emphasis.html
+--- expected/consecutive-emphasis.html
++++ snarkdown/consecutive-emphasis.html
+@@ -1,12 +1,10 @@
+-<p>
+-  <strong>
+-    bold
+-  </strong>
+-  <em>
+-    italic
+-  </em>
+-  <strong>
+-    bold
+-  </strong>
+-  with no spaces between runs.
+-</p>
++<strong>
++  bold
++</strong>
++<em>
++  italic
++</em>
++<strong>
++  bold
++</strong>
++with no spaces between runs.
+diff --git expected/emphasis-in-link.html snarkdown/emphasis-in-link.html
+--- expected/emphasis-in-link.html
++++ snarkdown/emphasis-in-link.html
+@@ -1,14 +1,12 @@
+-<p>
+-  A
+-  <a href="https://example.com" rel="nofollow">
+-    link with
+-    <strong>
+-      bold
+-    </strong>
+-    and
+-    <em>
+-      italic
+-    </em>
+-  </a>
+-  text.
+-</p>
++A
++<a href="https://example.com">
++  link with
++  <strong>
++    bold
++  </strong>
++  and
++  <em>
++    italic
++  </em>
++</a>
++text.
+diff --git expected/escaped-pipe-outside-table.html snarkdown/escaped-pipe-outside-table.html
+--- expected/escaped-pipe-outside-table.html
++++ snarkdown/escaped-pipe-outside-table.html
+@@ -1,3 +1 @@
+-<p>
+-  Not a table: a | b | c just text with escaped pipes.
+-</p>
++Not a table: a \| b \| c just text with escaped pipes.
+diff --git expected/html-inside-table.html snarkdown/html-inside-table.html
+--- expected/html-inside-table.html
++++ snarkdown/html-inside-table.html
+@@ -1,36 +1,7 @@
+-<markdown-accessiblity-table>
+-  <table role="table">
+-    <thead>
+-      <tr>
+-        <th>
+-          Tag
+-        </th>
+-        <th>
+-          Example
+-        </th>
+-      </tr>
+-    </thead>
+-    <tbody>
+-      <tr>
+-        <td>
+-          bold
+-        </td>
+-        <td>
+-          <strong>
+-            hi
+-          </strong>
+-        </td>
+-      </tr>
+-      <tr>
+-        <td>
+-          break
+-        </td>
+-        <td>
+-          a
+-          <br />
+-          b
+-        </td>
+-      </tr>
+-    </tbody>
+-  </table>
+-</markdown-accessiblity-table>
++| Tag | Example | | --- | ------- | | bold |
++<strong>
++  hi
++</strong>
++| | break | a
++<br />
++b |
+diff --git expected/link-with-parens-in-url.html snarkdown/link-with-parens-in-url.html
+--- expected/link-with-parens-in-url.html
++++ snarkdown/link-with-parens-in-url.html
+@@ -1,7 +1,5 @@
+-<p>
+-  See
+-  <a href="https://en.wikipedia.org/wiki/Markdown_(disambiguation)" rel="nofollow">
+-    Wikipedia
+-  </a>
+-  article.
+-</p>
++See
++<a href="https://en.wikipedia.org/wiki/Markdown_(disambiguation">
++  Wikipedia
++</a>
++) article.
+diff --git expected/list-with-blockquote.html snarkdown/list-with-blockquote.html
+--- expected/list-with-blockquote.html
++++ snarkdown/list-with-blockquote.html
+@@ -1,19 +1,13 @@
+ <ul>
+   <li>
+-    <p>
+-      A list item containing
+-    </p>
+-    <blockquote>
+-      <p>
+-        a blockquote
+-        <br />
+-        inside the item
+-      </p>
+-    </blockquote>
++    A list item containing
+   </li>
++</ul>
++<br />
++> a blockquote > inside the item
++<br />
++<ul>
+   <li>
+-    <p>
+-      Next item
+-    </p>
++    Next item
+   </li>
+ </ul>
+diff --git expected/list-with-fenced-code.html snarkdown/list-with-fenced-code.html
+--- expected/list-with-fenced-code.html
++++ snarkdown/list-with-fenced-code.html
+@@ -1,20 +1,15 @@
+ <ol>
+   <li>
+-    <p>
+-      First step:
+-    </p>
+-    <div class="highlight highlight-source-shell">
+-      <pre class="notranslate">
+-        <span class="pl-c1">
+-          echo
+-        </span>
+-        hello
+-      </pre>
+-    </div>
++    First step:
+   </li>
++</ol>
++<pre class="code poetry">
++  <code>
++    ```bash echo hello ```
++  </code>
++</pre>
++<ol>
+   <li>
+-    <p>
+-      Second step after the code block.
+-    </p>
++    Second step after the code block.
+   </li>
+ </ol>
+diff --git expected/multiple-blank-lines.html snarkdown/multiple-blank-lines.html
+--- expected/multiple-blank-lines.html
++++ snarkdown/multiple-blank-lines.html
+@@ -1,6 +1,3 @@
+-<p>
+-  Paragraph one.
+-</p>
+-<p>
+-  Paragraph two after multiple blank lines.
+-</p>
++Paragraph one.
++<br />
++Paragraph two after multiple blank lines.
+diff --git expected/nested-mixed-list.html snarkdown/nested-mixed-list.html
+--- expected/nested-mixed-list.html
++++ snarkdown/nested-mixed-list.html
+@@ -1,18 +1,10 @@
+ <ol>
+   <li>
+     Ordered parent
+-    <ul>
+-      <li>
+-        Unordered child
+-        <ol>
+-          <li>
+-            Ordered grandchild
+-          </li>
+-        </ol>
+-      </li>
+-      <li>
+-        Another child
+-      </li>
+-    </ul>
+   </li>
+ </ol>
++<pre class="code poetry">
++  <code>
++    - Unordered child 1. Ordered grandchild - Another child
++  </code>
++</pre>
+diff --git expected/raw-html-comment.html snarkdown/raw-html-comment.html
+--- expected/raw-html-comment.html
++++ snarkdown/raw-html-comment.html
+@@ -1,6 +1,5 @@
+-<p>
+-  Before comment.
+-</p>
+-<p>
+-  After comment.
+-</p>
++Before comment.
++<br />
++<!--this is an HTML comment-->
++<br />
++After comment.
+diff --git expected/setext-vs-list.html snarkdown/setext-vs-list.html
+--- expected/setext-vs-list.html
++++ snarkdown/setext-vs-list.html
+@@ -3,4 +3,4 @@
+     item
+   </li>
+ </ul>
+-<hr />
++---
+diff --git expected/special-chars-in-text.html snarkdown/special-chars-in-text.html
+--- expected/special-chars-in-text.html
++++ snarkdown/special-chars-in-text.html
+@@ -1,3 +1 @@
+-<p>
+-  Less-than < and greater-than > and ampersand & and quote " in plain text.
+-</p>
++Less-than < and greater-than > and ampersand & and quote " in plain text.
+diff --git expected/tight-vs-loose.html snarkdown/tight-vs-loose.html
+--- expected/tight-vs-loose.html
++++ snarkdown/tight-vs-loose.html
+@@ -6,18 +6,17 @@
+     tight two
+   </li>
+ </ul>
+-<p>
+-  paragraph between
+-</p>
++<br />
++paragraph between
++<br />
+ <ol>
+   <li>
+-    <p>
+-      loose one
+-    </p>
++    loose one
+   </li>
++</ol>
++<br />
++<ol>
+   <li>
+-    <p>
+-      loose two
+-    </p>
++    loose two
+   </li>
+ </ol>
+diff --git expected/unicode-text.html snarkdown/unicode-text.html
+--- expected/unicode-text.html
++++ snarkdown/unicode-text.html
+@@ -1,3 +1 @@
+-<p>
+-  Unicode: café, naïve, 日本語, emoji 🎉, and combining e\u0301.
+-</p>
++Unicode: café, naïve, 日本語, emoji 🎉, and combining e\u0301.
+diff --git expected/autolink-email.html snarkdown/autolink-email.html
+--- expected/autolink-email.html
++++ snarkdown/autolink-email.html
+@@ -1,7 +1 @@
+-<p>
+-  Email me at
+-  <a href="mailto:someone@example.com">
+-    someone@example.com
+-  </a>
+-  please.
+-</p>
++Email me at someone@example.com please.
+diff --git expected/autolink-in-parentheses.html snarkdown/autolink-in-parentheses.html
+--- expected/autolink-in-parentheses.html
++++ snarkdown/autolink-in-parentheses.html
+@@ -1,7 +1,4 @@
+-<p>
+-  A link
+-  <a href="http://www.example.com/foo_(bar)" rel="nofollow">
+-    www.example.com/foo_(bar)
+-  </a>
+-  with balanced parens.
+-</p>
++A link www.example.com/foo
++<em>
++  (bar) with balanced parens.
++</em>
+diff --git expected/autolink-trailing-punctuation.html snarkdown/autolink-trailing-punctuation.html
+--- expected/autolink-trailing-punctuation.html
++++ snarkdown/autolink-trailing-punctuation.html
+@@ -1,15 +1 @@
+-<p>
+-  See (
+-  <a href="https://example.com" rel="nofollow">
+-    https://example.com
+-  </a>
+-  ) and
+-  <a href="https://example.com" rel="nofollow">
+-    https://example.com
+-  </a>
+-  . and
+-  <a href="https://example.com/path?a=1&b=2" rel="nofollow">
+-    https://example.com/path?a=1&b=2
+-  </a>
+-  .
+-</p>
++See (https://example.com) and https://example.com. and https://example.com/path?a=1&b=2.
+diff --git expected/autolink-url.html snarkdown/autolink-url.html
+--- expected/autolink-url.html
++++ snarkdown/autolink-url.html
+@@ -1,11 +1 @@
+-<p>
+-  Visit
+-  <a href="https://example.com" rel="nofollow">
+-    https://example.com
+-  </a>
+-  for more, or
+-  <a href="http://test.org" rel="nofollow">
+-    http://test.org
+-  </a>
+-  too.
+-</p>
++Visit https://example.com for more, or http://test.org too.
+diff --git expected/autolink-www.html snarkdown/autolink-www.html
+--- expected/autolink-www.html
++++ snarkdown/autolink-www.html
+@@ -1,7 +1 @@
+-<p>
+-  Check out
+-  <a href="http://www.example.com" rel="nofollow">
+-    www.example.com
+-  </a>
+-  for details.
+-</p>
++Check out www.example.com for details.
+diff --git expected/strikethrough-double.html snarkdown/strikethrough-double.html
+--- expected/strikethrough-double.html
++++ snarkdown/strikethrough-double.html
+@@ -1,7 +1,5 @@
+-<p>
+-  This is
+-  <del>
+-    struck through
+-  </del>
+-  text.
+-</p>
++This is
++<s>
++  struck through
++</s>
++text.
+diff --git expected/strikethrough-nested.html snarkdown/strikethrough-nested.html
+--- expected/strikethrough-nested.html
++++ snarkdown/strikethrough-nested.html
+@@ -1,13 +1,11 @@
+-<p>
+-  <del>
+-    struck with
+-    <strong>
+-      bold
+-    </strong>
+-    and
+-    <em>
+-      italic
+-    </em>
+-    inside
+-  </del>
+-</p>
++<s>
++  struck with
++  <strong>
++    bold
++  </strong>
++  and
++  <em>
++    italic
++  </em>
++  inside
++</s>
+diff --git expected/strikethrough-single.html snarkdown/strikethrough-single.html
+--- expected/strikethrough-single.html
++++ snarkdown/strikethrough-single.html
+@@ -1,7 +1 @@
+-<p>
+-  This is
+-  <del>
+-    single tilde
+-  </del>
+-  text.
+-</p>
++This is ~single tilde~ text.
+diff --git expected/table-alignment.html snarkdown/table-alignment.html
+--- expected/table-alignment.html
++++ snarkdown/table-alignment.html
+@@ -1,41 +1 @@
+-<markdown-accessiblity-table>
+-  <table role="table">
+-    <thead>
+-      <tr>
+-        <th align="left">
+-          Left
+-        </th>
+-        <th align="center">
+-          Center
+-        </th>
+-        <th align="right">
+-          Right
+-        </th>
+-      </tr>
+-    </thead>
+-    <tbody>
+-      <tr>
+-        <td align="left">
+-          a
+-        </td>
+-        <td align="center">
+-          b
+-        </td>
+-        <td align="right">
+-          c
+-        </td>
+-      </tr>
+-      <tr>
+-        <td align="left">
+-          dd
+-        </td>
+-        <td align="center">
+-          ee
+-        </td>
+-        <td align="right">
+-          ff
+-        </td>
+-      </tr>
+-    </tbody>
+-  </table>
+-</markdown-accessiblity-table>
++| Left | Center | Right | | :--- | :----: | ----: | | a | b | c | | dd | ee | ff |
+diff --git expected/table-basic.html snarkdown/table-basic.html
+--- expected/table-basic.html
++++ snarkdown/table-basic.html
+@@ -1,32 +1 @@
+-<markdown-accessiblity-table>
+-  <table role="table">
+-    <thead>
+-      <tr>
+-        <th>
+-          Fruit
+-        </th>
+-        <th>
+-          Color
+-        </th>
+-      </tr>
+-    </thead>
+-    <tbody>
+-      <tr>
+-        <td>
+-          Apple
+-        </td>
+-        <td>
+-          Red
+-        </td>
+-      </tr>
+-      <tr>
+-        <td>
+-          Lime
+-        </td>
+-        <td>
+-          Green
+-        </td>
+-      </tr>
+-    </tbody>
+-  </table>
+-</markdown-accessiblity-table>
++| Fruit | Color | | ----- | ----- | | Apple | Red | | Lime | Green |
+diff --git expected/table-escaped-pipe.html snarkdown/table-escaped-pipe.html
+--- expected/table-escaped-pipe.html
++++ snarkdown/table-escaped-pipe.html
+@@ -1,24 +1 @@
+-<markdown-accessiblity-table>
+-  <table role="table">
+-    <thead>
+-      <tr>
+-        <th>
+-          Column
+-        </th>
+-        <th>
+-          Value
+-        </th>
+-      </tr>
+-    </thead>
+-    <tbody>
+-      <tr>
+-        <td>
+-          pipe
+-        </td>
+-        <td>
+-          a | b
+-        </td>
+-      </tr>
+-    </tbody>
+-  </table>
+-</markdown-accessiblity-table>
++| Column | Value | | ------ | ----- | | pipe | a \| b |
+diff --git expected/table-inline-formatting.html snarkdown/table-inline-formatting.html
+--- expected/table-inline-formatting.html
++++ snarkdown/table-inline-formatting.html
+@@ -1,40 +1,17 @@
+-<markdown-accessiblity-table>
+-  <table role="table">
+-    <thead>
+-      <tr>
+-        <th>
+-          Syntax
+-        </th>
+-        <th>
+-          Renders
+-        </th>
+-      </tr>
+-    </thead>
+-    <tbody>
+-      <tr>
+-        <td>
+-          <code class="notranslate">
+-            code
+-          </code>
+-        </td>
+-        <td>
+-          <strong>
+-            bold
+-          </strong>
+-        </td>
+-      </tr>
+-      <tr>
+-        <td>
+-          <del>
+-            old
+-          </del>
+-        </td>
+-        <td>
+-          <a href="https://example.com" rel="nofollow">
+-            link
+-          </a>
+-        </td>
+-      </tr>
+-    </tbody>
+-  </table>
+-</markdown-accessiblity-table>
++| Syntax | Renders | | ------ | ------- | |
++<code>
++  code
++</code>
++|
++<strong>
++  bold
++</strong>
++| |
++<s>
++  old
++</s>
++|
++<a href="https://example.com">
++  link
++</a>
++|
+diff --git expected/table-no-body.html snarkdown/table-no-body.html
+--- expected/table-no-body.html
++++ snarkdown/table-no-body.html
+@@ -1,14 +1 @@
+-<markdown-accessiblity-table>
+-  <table role="table">
+-    <thead>
+-      <tr>
+-        <th>
+-          Header A
+-        </th>
+-        <th>
+-          Header B
+-        </th>
+-      </tr>
+-    </thead>
+-  </table>
+-</markdown-accessiblity-table>
++| Header A | Header B | | -------- | -------- |
+diff --git expected/table-ragged.html snarkdown/table-ragged.html
+--- expected/table-ragged.html
++++ snarkdown/table-ragged.html
+@@ -1,37 +1 @@
+-<markdown-accessiblity-table>
+-  <table role="table">
+-    <thead>
+-      <tr>
+-        <th>
+-          A
+-        </th>
+-        <th>
+-          B
+-        </th>
+-        <th>
+-          C
+-        </th>
+-      </tr>
+-    </thead>
+-    <tbody>
+-      <tr>
+-        <td>
+-          only one
+-        </td>
+-        <td />
+-        <td />
+-      </tr>
+-      <tr>
+-        <td>
+-          1
+-        </td>
+-        <td>
+-          2
+-        </td>
+-        <td>
+-          3
+-        </td>
+-      </tr>
+-    </tbody>
+-  </table>
+-</markdown-accessiblity-table>
++| A | B | C | | - | - | - | | only one | | 1 | 2 | 3 | 4 |
+diff --git expected/tagfilter.html snarkdown/tagfilter.html
+--- expected/tagfilter.html
++++ snarkdown/tagfilter.html
+@@ -1,3 +1,4 @@
+-<p>
+-  A <title> tag and a <textarea> and <xmp> and <script>alert(1)</script> raw.
+-</p>
++A
++<title>
++  tag and a <textarea> and <xmp> and <script>alert(1)</script> raw.
++</title>
+diff --git expected/tasklist-nested.html snarkdown/tasklist-nested.html
+--- expected/tasklist-nested.html
++++ snarkdown/tasklist-nested.html
+@@ -1,16 +1,15 @@
+-<ul class="contains-task-list">
+-  <li class="task-list-item">
+-    <input aria-label="Incomplete task" class="task-list-item-checkbox" disabled id="" type="checkbox" />
++<ul>
++  <li>
++    <a href="undefined">
++    </a>
+     Parent task
+-    <ul class="contains-task-list">
+-      <li class="task-list-item">
+-        <input aria-label="Completed task" checked class="task-list-item-checkbox" disabled id="" type="checkbox" />
+-        Child done
+-      </li>
+-      <li class="task-list-item">
+-        <input aria-label="Incomplete task" class="task-list-item-checkbox" disabled id="" type="checkbox" />
+-        Child todo
+-      </li>
+-    </ul>
+   </li>
+ </ul>
++-
++<a href="undefined">
++  x
++</a>
++Child done -
++<a href="undefined">
++</a>
++Child todo
+diff --git expected/tasklist-with-formatting.html snarkdown/tasklist-with-formatting.html
+--- expected/tasklist-with-formatting.html
++++ snarkdown/tasklist-with-formatting.html
+@@ -1,19 +1,22 @@
+-<ul class="contains-task-list">
+-  <li class="task-list-item">
+-    <input aria-label="Completed task" checked class="task-list-item-checkbox" disabled id="" type="checkbox" />
++<ul>
++  <li>
++    <a href="undefined">
++      x
++    </a>
+     Task with
+     <strong>
+       bold
+     </strong>
+     and a
+-    <a href="https://example.com" rel="nofollow">
++    <a href="https://example.com">
+       link
+     </a>
+   </li>
+-  <li class="task-list-item">
+-    <input aria-label="Incomplete task" class="task-list-item-checkbox" disabled id="" type="checkbox" />
++  <li>
++    <a href="undefined">
++    </a>
+     Task with
+-    <code class="notranslate">
++    <code>
+       code
+     </code>
+   </li>
+diff --git expected/tasklist.html snarkdown/tasklist.html
+--- expected/tasklist.html
++++ snarkdown/tasklist.html
+@@ -1,14 +1,19 @@
+-<ul class="contains-task-list">
+-  <li class="task-list-item">
+-    <input aria-label="Completed task" checked class="task-list-item-checkbox" disabled id="" type="checkbox" />
++<ul>
++  <li>
++    <a href="undefined">
++      x
++    </a>
+     Completed task
+   </li>
+-  <li class="task-list-item">
+-    <input aria-label="Incomplete task" class="task-list-item-checkbox" disabled id="" type="checkbox" />
++  <li>
++    <a href="undefined">
++    </a>
+     Incomplete task
+   </li>
+-  <li class="task-list-item">
+-    <input aria-label="Completed task" checked class="task-list-item-checkbox" disabled id="" type="checkbox" />
++  <li>
++    <a href="undefined">
++      X
++    </a>
+     Capital X also checked
+   </li>
+ </ul>
+diff --git expected/alert-caution.html snarkdown/alert-caution.html
+--- expected/alert-caution.html
++++ snarkdown/alert-caution.html
+@@ -1,11 +1,6 @@
+-<div class="markdown-alert markdown-alert-caution">
+-  <p class="markdown-alert-title">
+-    <svg aria-hidden="true" class="octicon octicon-stop mr-2" data-component="Octicon" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+-      <path d="M4.47.22A.749.749 0 0 1 5 0h6c.199 0 .389.079.53.22l4.25 4.25c.141.14.22.331.22.53v6a.749.749 0 0 1-.22.53l-4.25 4.25A.749.749 0 0 1 11 16H5a.749.749 0 0 1-.53-.22L.22 11.53A.749.749 0 0 1 0 11V5c0-.199.079-.389.22-.53Zm.84 1.28L1.5 5.31v5.38l3.81 3.81h5.38l3.81-3.81V5.31L10.69 1.5ZM8 4a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 8 4Zm0 8a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z" />
+-    </svg>
+-    Caution
+-  </p>
+-  <p>
+-    Advises about risks or negative outcomes of certain actions.
+-  </p>
+-</div>
++<blockquote>
++  <a href="undefined">
++    !CAUTION
++  </a>
++  Advises about risks or negative outcomes of certain actions.
++</blockquote>
+diff --git expected/alert-important.html snarkdown/alert-important.html
+--- expected/alert-important.html
++++ snarkdown/alert-important.html
+@@ -1,11 +1,6 @@
+-<div class="markdown-alert markdown-alert-important">
+-  <p class="markdown-alert-title">
+-    <svg aria-hidden="true" class="octicon octicon-report mr-2" data-component="Octicon" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+-      <path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z" />
+-    </svg>
+-    Important
+-  </p>
+-  <p>
+-    Key information users need to know to achieve their goal.
+-  </p>
+-</div>
++<blockquote>
++  <a href="undefined">
++    !IMPORTANT
++  </a>
++  Key information users need to know to achieve their goal.
++</blockquote>
+diff --git expected/alert-note.html snarkdown/alert-note.html
+--- expected/alert-note.html
++++ snarkdown/alert-note.html
+@@ -1,11 +1,6 @@
+-<div class="markdown-alert markdown-alert-note">
+-  <p class="markdown-alert-title">
+-    <svg aria-hidden="true" class="octicon octicon-info mr-2" data-component="Octicon" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+-      <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z" />
+-    </svg>
+-    Note
+-  </p>
+-  <p>
+-    Useful information that users should know, even when skimming content.
+-  </p>
+-</div>
++<blockquote>
++  <a href="undefined">
++    !NOTE
++  </a>
++  Useful information that users should know, even when skimming content.
++</blockquote>
+diff --git expected/alert-tip.html snarkdown/alert-tip.html
+--- expected/alert-tip.html
++++ snarkdown/alert-tip.html
+@@ -1,11 +1,6 @@
+-<div class="markdown-alert markdown-alert-tip">
+-  <p class="markdown-alert-title">
+-    <svg aria-hidden="true" class="octicon octicon-light-bulb mr-2" data-component="Octicon" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+-      <path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z" />
+-    </svg>
+-    Tip
+-  </p>
+-  <p>
+-    Helpful advice for doing things better or more easily.
+-  </p>
+-</div>
++<blockquote>
++  <a href="undefined">
++    !TIP
++  </a>
++  Helpful advice for doing things better or more easily.
++</blockquote>
+diff --git expected/alert-warning.html snarkdown/alert-warning.html
+--- expected/alert-warning.html
++++ snarkdown/alert-warning.html
+@@ -1,11 +1,6 @@
+-<div class="markdown-alert markdown-alert-warning">
+-  <p class="markdown-alert-title">
+-    <svg aria-hidden="true" class="octicon octicon-alert mr-2" data-component="Octicon" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+-      <path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z" />
+-    </svg>
+-    Warning
+-  </p>
+-  <p>
+-    Urgent info that needs immediate user attention to avoid problems.
+-  </p>
+-</div>
++<blockquote>
++  <a href="undefined">
++    !WARNING
++  </a>
++  Urgent info that needs immediate user attention to avoid problems.
++</blockquote>
+diff --git expected/emoji-shortcode.html snarkdown/emoji-shortcode.html
+--- expected/emoji-shortcode.html
++++ snarkdown/emoji-shortcode.html
+@@ -1,3 +1 @@
+-<p>
+-  Shipped it 🚀 and celebrated 🎉 with 👍.
+-</p>
++Shipped it :rocket: and celebrated :tada: with :+1:.
+diff --git expected/footnote-multiple.html snarkdown/footnote-multiple.html
+--- expected/footnote-multiple.html
++++ snarkdown/footnote-multiple.html
+@@ -1,42 +1,9 @@
+-<p>
+-  First reference
+-  <sup>
+-    <a aria-described-by="footnote-label" data-footnote-ref="" href="#user-content-fn-a-d0d1227d44c67ad96156fc590d87461c" id="user-content-fnref-a-d0d1227d44c67ad96156fc590d87461c">
+-      1
+-    </a>
+-  </sup>
+-  and second reference
+-  <sup>
+-    <a aria-described-by="footnote-label" data-footnote-ref="" href="#user-content-fn-b-d0d1227d44c67ad96156fc590d87461c" id="user-content-fnref-b-d0d1227d44c67ad96156fc590d87461c">
+-      2
+-    </a>
+-  </sup>
+-  in one paragraph.
+-</p>
+-<section class="footnotes" data-footnotes="">
+-  <h2 class="sr-only" id="footnote-label">
+-    Footnotes
+-  </h2>
+-  <ol>
+-    <li id="user-content-fn-a-d0d1227d44c67ad96156fc590d87461c">
+-      <p>
+-        First footnote.
+-        <a aria-label="Back to reference 1" class="data-footnote-backref" data-footnote-backref="" href="#user-content-fnref-a-d0d1227d44c67ad96156fc590d87461c">
+-          ↩
+-        </a>
+-      </p>
+-    </li>
+-    <li id="user-content-fn-b-d0d1227d44c67ad96156fc590d87461c">
+-      <p>
+-        Second footnote with
+-        <strong>
+-          bold
+-        </strong>
+-        .
+-        <a aria-label="Back to reference 2" class="data-footnote-backref" data-footnote-backref="" href="#user-content-fnref-b-d0d1227d44c67ad96156fc590d87461c">
+-          ↩
+-        </a>
+-      </p>
+-    </li>
+-  </ol>
+-</section>
++First reference
++<a href="First footnote.">
++  ^a
++</a>
++and second reference
++<a href="Second footnote with **bold**.">
++  ^b
++</a>
++in one paragraph.
+diff --git expected/footnote.html snarkdown/footnote.html
+--- expected/footnote.html
++++ snarkdown/footnote.html
+@@ -1,23 +1,4 @@
+-<p>
+-  Here is a statement with a footnote.
+-  <sup>
+-    <a aria-described-by="footnote-label" data-footnote-ref="" href="#user-content-fn-1-302ae82b9ca33678f9a03c94ef0fb605" id="user-content-fnref-1-302ae82b9ca33678f9a03c94ef0fb605">
+-      1
+-    </a>
+-  </sup>
+-</p>
+-<section class="footnotes" data-footnotes="">
+-  <h2 class="sr-only" id="footnote-label">
+-    Footnotes
+-  </h2>
+-  <ol>
+-    <li id="user-content-fn-1-302ae82b9ca33678f9a03c94ef0fb605">
+-      <p>
+-        This is the footnote definition.
+-        <a aria-label="Back to reference 1" class="data-footnote-backref" data-footnote-backref="" href="#user-content-fnref-1-302ae82b9ca33678f9a03c94ef0fb605">
+-          ↩
+-        </a>
+-      </p>
+-    </li>
+-  </ol>
+-</section>
++Here is a statement with a footnote.
++<a href="This is the footnote definition.">
++  ^1
++</a>
+diff --git expected/heading-with-anchor.html snarkdown/heading-with-anchor.html
+--- expected/heading-with-anchor.html
++++ snarkdown/heading-with-anchor.html
+@@ -1,6 +1,4 @@
+ <h2>
+   A Heading That Gets An Anchor
+ </h2>
+-<p>
+-  Some text under the heading.
+-</p>
++Some text under the heading.
+diff --git expected/issue-reference.html snarkdown/issue-reference.html
+--- expected/issue-reference.html
++++ snarkdown/issue-reference.html
+@@ -1,3 +1 @@
+-<p>
+-  Fixes #1 and relates to #42 in this repo.
+-</p>
++Fixes #1 and relates to #42 in this repo.
+diff --git expected/math-block.html snarkdown/math-block.html
+--- expected/math-block.html
++++ snarkdown/math-block.html
+@@ -1,5 +1,5 @@
+-<p>
+-  <math-renderer class="js-display-math" data-run-id="6e28c46ad94a671a4538fd18f3e83e65" style="display: block">
+-    $$ \frac{1}{n} \sum_{i=1}^{n} x_i $$
+-  </math-renderer>
+-</p>
++$$ \frac{1}{n} \sum
++<em>
++  {i=1}^{n} x
++</em>
++i $$
+diff --git expected/math-inline.html snarkdown/math-inline.html
+--- expected/math-inline.html
++++ snarkdown/math-inline.html
+@@ -1,7 +1 @@
+-<p>
+-  The equation
+-  <math-renderer class="js-inline-math" data-run-id="0bae22a43582545172de61655bf8a8d3" style="display: inline-block">
+-    $a^2 + b^2 = c^2$
+-  </math-renderer>
+-  is the Pythagorean theorem.
+-</p>
++The equation $a^2 + b^2 = c^2$ is the Pythagorean theorem.
+diff --git expected/mention.html snarkdown/mention.html
+--- expected/mention.html
++++ snarkdown/mention.html
+@@ -1,11 +1 @@
+-<p>
+-  Thanks
+-  <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/octocat/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/octocat">
+-    @octocat
+-  </a>
+-  and
+-  <a class="user-mention notranslate" data-hovercard-type="organization" data-hovercard-url="/orgs/github/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/github">
+-    @github
+-  </a>
+-  for the help.
+-</p>
++Thanks @octocat and @github for the help.
+diff --git expected/blockquote-with-html-md.html snarkdown/blockquote-with-html-md.html
+--- expected/blockquote-with-html-md.html
++++ snarkdown/blockquote-with-html-md.html
+@@ -1,5 +1,7 @@
+ <blockquote>
+   <div>
+-    *not emphasized inside quoted div*
++    <em>
++      not emphasized inside quoted div
++    </em>
+   </div>
+ </blockquote>
+diff --git expected/div-markdown-attr.html snarkdown/div-markdown-attr.html
+--- expected/div-markdown-attr.html
++++ snarkdown/div-markdown-attr.html
+@@ -1,3 +1,5 @@
+-<div>
+-  *does markdown="1" change anything?*
++<div markdown="1">
++  <em>
++    does markdown="1" change anything?
++  </em>
+ </div>
+diff --git expected/emphasis-across-inline-tag.html snarkdown/emphasis-across-inline-tag.html
+--- expected/emphasis-across-inline-tag.html
++++ snarkdown/emphasis-across-inline-tag.html
+@@ -1,9 +1,7 @@
+-<p>
+-  <em>
+-    open
+-    <span>
+-      span
+-    </span>
+-    still emphasized
+-  </em>
+-</p>
++<em>
++  open
++  <span>
++    span
++  </span>
++  still emphasized
++</em>
+diff --git expected/heading-in-div-tight.html snarkdown/heading-in-div-tight.html
+--- expected/heading-in-div-tight.html
++++ snarkdown/heading-in-div-tight.html
+@@ -1,3 +1,5 @@
+ <div>
+-  # not a heading
++  <h1>
++    not a heading
++  </h1>
+ </div>
+diff --git expected/list-in-div-loose.html snarkdown/list-in-div-loose.html
+--- expected/list-in-div-loose.html
++++ snarkdown/list-in-div-loose.html
+@@ -1,4 +1,5 @@
+ <div>
++  <br />
+   <ul>
+     <li>
+       a list item
+@@ -7,4 +8,5 @@
+       another list item
+     </li>
+   </ul>
++  <br />
+ </div>
+diff --git expected/list-in-div-tight.html snarkdown/list-in-div-tight.html
+--- expected/list-in-div-tight.html
++++ snarkdown/list-in-div-tight.html
+@@ -1,3 +1,10 @@
+ <div>
+-  - not a list item - still not a list
++  <ul>
++    <li>
++      not a list item
++    </li>
++    <li>
++      still not a list
++    </li>
++  </ul>
+ </div>
+diff --git expected/md-after-close-tag-loose.html snarkdown/md-after-close-tag-loose.html
+--- expected/md-after-close-tag-loose.html
++++ snarkdown/md-after-close-tag-loose.html
+@@ -1,8 +1,7 @@
+ <div>
+   content
+ </div>
+-<p>
+-  <em>
+-    emphasized — the blank line ended the block
+-  </em>
+-</p>
++<br />
++<em>
++  emphasized — the blank line ended the block
++</em>
+diff --git expected/md-after-close-tag-tight.html snarkdown/md-after-close-tag-tight.html
+--- expected/md-after-close-tag-tight.html
++++ snarkdown/md-after-close-tag-tight.html
+@@ -1,4 +1,6 @@
+ <div>
+   content
+ </div>
+-*not emphasized — still in the HTML block*
++<em>
++  not emphasized — still in the HTML block
++</em>
+diff --git expected/md-in-div-loose.html snarkdown/md-in-div-loose.html
+--- expected/md-in-div-loose.html
++++ snarkdown/md-in-div-loose.html
+@@ -1,11 +1,11 @@
+ <div>
+-  <p>
+-    <em>
+-      emphasized
+-    </em>
+-    and
+-    <strong>
+-      bold
+-    </strong>
+-  </p>
++  <br />
++  <em>
++    emphasized
++  </em>
++  and
++  <strong>
++    bold
++  </strong>
++  <br />
+ </div>
+diff --git expected/md-in-div-tight.html snarkdown/md-in-div-tight.html
+--- expected/md-in-div-tight.html
++++ snarkdown/md-in-div-tight.html
+@@ -1,3 +1,9 @@
+ <div>
+-  *not emphasized* and **not bold**
++  <em>
++    not emphasized
++  </em>
++  and
++  <strong>
++    not bold
++  </strong>
+ </div>
+diff --git expected/md-in-inline-code-tag.html snarkdown/md-in-inline-code-tag.html
+--- expected/md-in-inline-code-tag.html
++++ snarkdown/md-in-inline-code-tag.html
+@@ -1,9 +1,7 @@
+-<p>
+-  Inline
+-  <code class="notranslate">
+-    <em>
+-      emphasized inside a code tag
+-    </em>
+-  </code>
+-  here.
+-</p>
++Inline
++<code>
++  <em>
++    emphasized inside a code tag
++  </em>
++</code>
++here.
+diff --git expected/md-in-inline-span.html snarkdown/md-in-inline-span.html
+--- expected/md-in-inline-span.html
++++ snarkdown/md-in-inline-span.html
+@@ -1,13 +1,11 @@
+-<p>
+-  Inline
+-  <span>
+-    <em>
+-      emphasized
+-    </em>
+-    and
+-    <strong>
+-      bold
+-    </strong>
+-  </span>
+-  stay markdown.
+-</p>
++Inline
++<span>
++  <em>
++    emphasized
++  </em>
++  and
++  <strong>
++    bold
++  </strong>
++</span>
++stay markdown.
+diff --git expected/md-in-pre.html snarkdown/md-in-pre.html
+--- expected/md-in-pre.html
++++ snarkdown/md-in-pre.html
+@@ -1,3 +1,6 @@
+-<pre class="notranslate">
+-  *not emphasized* and # not a heading
++<pre>
++  <em>
++    not emphasized
++  </em>
++  and # not a heading
+ </pre>
+diff --git expected/md-in-table-html.html snarkdown/md-in-table-html.html
+--- expected/md-in-table-html.html
++++ snarkdown/md-in-table-html.html
+@@ -1,11 +1,12 @@
+-<markdown-accessiblity-table>
+-  <table role="table">
+-    <tbody>
+-      <tr>
+-        <td>
+-          *not emphasized* in a raw table
+-        </td>
+-      </tr>
+-    </tbody>
+-  </table>
+-</markdown-accessiblity-table>
++<table>
++  <tbody>
++    <tr>
++      <td>
++        <em>
++          not emphasized
++        </em>
++        in a raw table
++      </td>
++    </tr>
++  </tbody>
++</table>

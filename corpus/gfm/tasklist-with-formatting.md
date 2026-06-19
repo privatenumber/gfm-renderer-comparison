@@ -1,0 +1,2 @@
+- [x] Task with **bold** and a [link](https://example.com)
+- [ ] Task with `code`
