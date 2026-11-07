@@ -1,3 +1,6 @@
 allowBuilds:
   cmark-gfm: true
   hoedown: false
+
+minimumReleaseAgeExclude:
+  - mdeval
