@@ -1,0 +1,3 @@
+allowBuilds:
+  cmark-gfm: true
+  hoedown: false
